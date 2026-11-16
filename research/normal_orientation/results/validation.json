@@ -1,0 +1,8 @@
+{
+  "correlation_max_error": 1.9984014443252818e-15,
+  "expectation_max_error": 4.440892098500626e-16,
+  "substitution_max_error": 1.9984014443252818e-15,
+  "winding_adjoint_error": 1.7763568394002505e-15,
+  "winding_gradient_error": 1.9571935183648748e-09,
+  "consistent_graph_checks": 6
+}

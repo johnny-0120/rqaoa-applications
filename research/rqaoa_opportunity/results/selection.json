@@ -1,0 +1,26 @@
+{
+  "criterion": "mean normalized RQ minus standard-QAOA matched decision-shot expected best",
+  "ranking": [
+    [
+      3.6936932709765874e-05,
+      "paintshop"
+    ],
+    [
+      -0.0019219981553279296,
+      "dense_positive"
+    ],
+    [
+      -0.002728750692100371,
+      "sk_gaussian"
+    ],
+    [
+      -0.00937168861234716,
+      "signed_regular3"
+    ]
+  ],
+  "selected": [
+    "paintshop",
+    "dense_positive"
+  ],
+  "interpretation": "selection measures benefit versus standard QAOA, not classical advantage"
+}

@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.pyc
+quantum_fit_check/
+research/rqaoa_opportunity/results_tmp/

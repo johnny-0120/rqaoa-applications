@@ -1,0 +1,11 @@
+{
+  "cases_checked": 98,
+  "max_statevector_expectation_error": 2.1884716261411086e-12,
+  "independent_bit_enumeration_ids": [
+    0,
+    44,
+    52
+  ],
+  "reconstructed_cuts_checked": 98,
+  "all_ratios_in_range": true
+}

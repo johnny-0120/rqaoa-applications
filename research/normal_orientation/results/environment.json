@@ -1,0 +1,16 @@
+{
+  "python": "3.11.15 (main, Apr 14 2026, 14:31:26) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "cvxpy": "1.9.3",
+    "qiskit": "2.6.2",
+    "matplotlib": "3.11.2",
+    "networkx": "3.6.1"
+  },
+  "total_seconds": 47.64488719997462,
+  "cases": 144,
+  "rows": 1368,
+  "code_sha256": "303811d0db553d2ad5803308423ff539e65e745c2b7a5a795290ee30511b703f"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "family": "paintshop",
+    "statevector_error": 6.938893903907228e-17
+  },
+  {
+    "family": "dense_positive",
+    "statevector_error": 5.551115123125783e-17
+  },
+  {
+    "family": "sk_gaussian",
+    "statevector_error": 9.71445146547012e-17
+  },
+  {
+    "family": "signed_regular3",
+    "statevector_error": 8.326672684688674e-17
+  }
+]

@@ -1,0 +1,242 @@
+[
+ {
+  "n": 64,
+  "seed": 500,
+  "steps": 60,
+  "rq": 20,
+  "best_known": 20,
+  "reachable_after_fraction": {
+   "0.25": 20,
+   "0.5": 20,
+   "0.75": 20,
+   "1.0": 20
+  },
+  "corr_first_quarter": 0.3762252191056696,
+  "corr_last_quarter": 0.3863346961115474
+ },
+ {
+  "n": 64,
+  "seed": 501,
+  "steps": 60,
+  "rq": 21,
+  "best_known": 16,
+  "reachable_after_fraction": {
+   "0.25": 19,
+   "0.5": 21,
+   "0.75": 21,
+   "1.0": 21
+  },
+  "corr_first_quarter": 0.3727132279410401,
+  "corr_last_quarter": 0.34208909563965123
+ },
+ {
+  "n": 64,
+  "seed": 502,
+  "steps": 60,
+  "rq": 19,
+  "best_known": 18,
+  "reachable_after_fraction": {
+   "0.25": 19,
+   "0.5": 19,
+   "0.75": 19,
+   "1.0": 19
+  },
+  "corr_first_quarter": 0.46904395623069334,
+  "corr_last_quarter": 0.4344998462616683
+ },
+ {
+  "n": 64,
+  "seed": 503,
+  "steps": 60,
+  "rq": 22,
+  "best_known": 21,
+  "reachable_after_fraction": {
+   "0.25": 22,
+   "0.5": 22,
+   "0.75": 22,
+   "1.0": 22
+  },
+  "corr_first_quarter": 0.40802063947543465,
+  "corr_last_quarter": 0.40904012597721434
+ },
+ {
+  "n": 64,
+  "seed": 504,
+  "steps": 60,
+  "rq": 25,
+  "best_known": 23,
+  "reachable_after_fraction": {
+   "0.25": 23,
+   "0.5": 23,
+   "0.75": 25,
+   "1.0": 25
+  },
+  "corr_first_quarter": 0.4064624234869209,
+  "corr_last_quarter": 0.39034588287005345
+ },
+ {
+  "n": 64,
+  "seed": 505,
+  "steps": 60,
+  "rq": 21,
+  "best_known": 17,
+  "reachable_after_fraction": {
+   "0.25": 17,
+   "0.5": 20,
+   "0.75": 21,
+   "1.0": 21
+  },
+  "corr_first_quarter": 0.42951345267391733,
+  "corr_last_quarter": 0.40260710850574133
+ },
+ {
+  "n": 64,
+  "seed": 506,
+  "steps": 60,
+  "rq": 19,
+  "best_known": 19,
+  "reachable_after_fraction": {
+   "0.25": 19,
+   "0.5": 19,
+   "0.75": 19,
+   "1.0": 19
+  },
+  "corr_first_quarter": 0.3762252191056696,
+  "corr_last_quarter": 0.4406788024764188
+ },
+ {
+  "n": 64,
+  "seed": 507,
+  "steps": 60,
+  "rq": 20,
+  "best_known": 20,
+  "reachable_after_fraction": {
+   "0.25": 20,
+   "0.5": 20,
+   "0.75": 20,
+   "1.0": 20
+  },
+  "corr_first_quarter": 0.40104768012442116,
+  "corr_last_quarter": 0.42041761343413686
+ },
+ {
+  "n": 64,
+  "seed": 508,
+  "steps": 60,
+  "rq": 21,
+  "best_known": 21,
+  "reachable_after_fraction": {
+   "0.25": 21,
+   "0.5": 21,
+   "0.75": 21,
+   "1.0": 21
+  },
+  "corr_first_quarter": 0.4172356541672471,
+  "corr_last_quarter": 0.4440216151825439
+ },
+ {
+  "n": 64,
+  "seed": 509,
+  "steps": 60,
+  "rq": 20,
+  "best_known": 20,
+  "reachable_after_fraction": {
+   "0.25": 20,
+   "0.5": 20,
+   "0.75": 20,
+   "1.0": 20
+  },
+  "corr_first_quarter": 0.46874963972341466,
+  "corr_last_quarter": 0.43532635606640074
+ },
+ {
+  "n": 128,
+  "seed": 600,
+  "steps": 123,
+  "rq": 45,
+  "best_known": 39,
+  "reachable_after_fraction": {
+   "0.25": 41,
+   "0.5": 41,
+   "0.75": 44,
+   "1.0": 45
+  },
+  "corr_first_quarter": 0.34414855671198585,
+  "corr_last_quarter": 0.3210625593151702
+ },
+ {
+  "n": 128,
+  "seed": 601,
+  "steps": 124,
+  "rq": 39,
+  "best_known": 37,
+  "reachable_after_fraction": {
+   "0.25": 37,
+   "0.5": 39,
+   "0.75": 39,
+   "1.0": 39
+  },
+  "corr_first_quarter": 0.38375099118874334,
+  "corr_last_quarter": 0.3794791339388785
+ },
+ {
+  "n": 128,
+  "seed": 602,
+  "steps": 124,
+  "rq": 43,
+  "best_known": 34,
+  "reachable_after_fraction": {
+   "0.25": 36,
+   "0.5": 38,
+   "0.75": 41,
+   "1.0": 43
+  },
+  "corr_first_quarter": 0.36927253302488516,
+  "corr_last_quarter": 0.3266872631555823
+ },
+ {
+  "n": 128,
+  "seed": 603,
+  "steps": 124,
+  "rq": 44,
+  "best_known": 39,
+  "reachable_after_fraction": {
+   "0.25": 39,
+   "0.5": 41,
+   "0.75": 42,
+   "1.0": 44
+  },
+  "corr_first_quarter": 0.3829114727078841,
+  "corr_last_quarter": 0.29550865040847407
+ },
+ {
+  "n": 128,
+  "seed": 604,
+  "steps": 124,
+  "rq": 46,
+  "best_known": 38,
+  "reachable_after_fraction": {
+   "0.25": 38,
+   "0.5": 38,
+   "0.75": 40,
+   "1.0": 46
+  },
+  "corr_first_quarter": 0.3845793411857707,
+  "corr_last_quarter": 0.32947897328562864
+ },
+ {
+  "n": 128,
+  "seed": 605,
+  "steps": 123,
+  "rq": 39,
+  "best_known": 37,
+  "reachable_after_fraction": {
+   "0.25": 37,
+   "0.5": 39,
+   "0.75": 39,
+   "1.0": 39
+  },
+  "corr_first_quarter": 0.3527991170117826,
+  "corr_last_quarter": 0.3376581579803621
+ }
+]

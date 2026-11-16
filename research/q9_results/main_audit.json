@@ -1,0 +1,11 @@
+{
+  "cases": 208,
+  "family_cases": 88,
+  "rewiring_cases": 120,
+  "unique_labeled_edge_lists": 208,
+  "seconds": 142.1887587999954,
+  "max_qiskit_expectation_error": 2.1884716261411086e-12,
+  "all_decoded_scores_checked": true,
+  "all_regular_invariants_checked": true,
+  "gw_note": "Numerical SCS relaxation plus eigenvalue clipping and 256 hyperplane roundings; not rigorous SDP certificates"
+}

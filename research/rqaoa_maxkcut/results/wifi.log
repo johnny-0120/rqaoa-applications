@@ -1,0 +1,22 @@
+wifi 24 wifi 100 RQ 11.638 time 9.5
+wifi 24 wifi 101 RQ 3.205 time 10.4
+wifi 24 wifi 102 RQ 1.21 time 14.2
+wifi 24 wifi 103 RQ 14.177 time 15.7
+wifi 24 wifi 104 RQ 6.563 time 15.0
+wifi 24 wifi 105 RQ 2.0 time 15.0
+wifi 24 wifi 106 RQ 18.838 time 15.2
+wifi 24 wifi 107 RQ 18.639 time 15.8
+wifi 24 wifi 108 RQ 3.882 time 15.2
+wifi 24 wifi 109 RQ 35.987 time 10.9
+wifi 48 wifi 100 RQ 66.9 time 35.4
+wifi 48 wifi 101 RQ 56.679 time 56.2
+./research\rqaoa_maxkcut\baselines.py:200: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=cp.SCS, eps=1e-6, max_iters=20000)
+wifi 48 wifi 102 RQ 2.617 time 48.2
+wifi 48 wifi 103 RQ 24.136 time 49.7
+wifi 48 wifi 104 RQ 21.979 time 52.1
+wifi 48 wifi 105 RQ 11.781 time 33.4
+wifi 48 wifi 106 RQ 29.833 time 36.6
+wifi 48 wifi 107 RQ 45.159 time 37.9
+wifi 48 wifi 108 RQ 67.241 time 35.0
+wifi 48 wifi 109 RQ 32.867 time 35.4

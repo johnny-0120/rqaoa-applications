@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-07",
+  "scope": "Question 9: graph-structure dependence of QAOA and Recursive QAOA",
+  "status": "written before new experiments; exploratory extension using previous pilot results, not a preregistered study",
+  "primary": "Paired degree-preserving perturbation of connected 4-regular bipartite 16-node graphs",
+  "paired_seeds": 20,
+  "rewiring_counts": [0, 1, 2, 4, 8, 12],
+  "primary_invariants": "16 nodes, 32 edges, degree 4 at every node; each switch replaces two cross-partition edges by two within-partition edges",
+  "primary_caution": "Actual frustration and triangle count measured; neither is assumed monotone in rewiring count. Conditioning on successful switch construction restricts the generated ensemble.",
+  "families": ["path", "star", "cycle", "tree", "complete", "bipartite", "community", "random"],
+  "family_sizes": [12, 16],
+  "random_seeds_per_family_size": 10,
+  "fixed_family_seed": 0,
+  "methods": ["QAOA1 expectation", "QAOA1 best-of-256 samples, 30 batches", "edge-only RQAOA1", "all-pairs RQAOA1", "restricted-domain edge-only RQAOA1", "32-start classical local search", "SDP/GW with 256 rounded candidates"],
+  "depth_followup": "8 families at n=10; p=1,2,3; three optimizer seeds; 2400 objective calls cap for p>=2; initialized also from preceding-depth solution",
+  "noise_followup": "Three n=8 graphs, ideal-trained parameters, Aer density matrix with depolarizing two-qubit error and readout error; evaluation sensitivity only, not noisy training or calibrated hardware",
+  "exact_reference": "All assignments enumerated at n<=16; final decoded scores checked on original graph",
+  "statistics": "Family descriptive means; primary paired changes use graph-seed cluster bootstrap, no pooling of dependent steps as independent samples",
+  "claims": "No novelty or quantum advantage assumed; benchmark graphs are self-generated, not a bit-for-bit Team9 replication"
+}

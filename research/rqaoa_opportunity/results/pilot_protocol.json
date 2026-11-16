@@ -1,0 +1,35 @@
+{
+  "phase": "pilot",
+  "configs": [
+    [
+      "paintshop",
+      16,
+      0
+    ],
+    [
+      "dense_positive",
+      16,
+      0
+    ],
+    [
+      "sk_gaussian",
+      16,
+      0
+    ],
+    [
+      "signed_regular3",
+      16,
+      0
+    ]
+  ],
+  "p": 1,
+  "cutoff": 4,
+  "source": "self-generated graphs following stated literature families, not author datasets",
+  "ideal_correlations": true,
+  "quantum_hardware": false,
+  "screening": "exploratory; pilot seed0 is part of discovery; confirmation uses new seeds",
+  "standard_qaoa": "exact distribution for n<=20, expected best256 and best256*(n-4); aligns decision sampling only, not training shots",
+  "classical": "local1/local32/16start160sweepSA/SDP1024 with and without local polish/edge contraction/CPU-time-matched local",
+  "exact_reference": "enumerate n<=20; larger best observed and numerical SDP only",
+  "gamma": "129-point [0,2pi] search after scaling max coupling, beta analytic; no global certificate"
+}

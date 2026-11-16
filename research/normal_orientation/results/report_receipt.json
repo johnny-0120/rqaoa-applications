@@ -1,0 +1,10 @@
+{
+  "report": "./output\\點雲法向量_RQAOA與古典方法比較_2026-11-12.md",
+  "figures": [
+    "./output\\normal_orientation\\01_solver_comparison.png",
+    "./output\\normal_orientation\\02_geometry_model.png",
+    "./output\\normal_orientation\\03_orientation_example.png"
+  ],
+  "summary": "./research\\normal_orientation\\results\\summary.json",
+  "hash": "02ca4651761243ca6c261d3b06475d34d034b397be83972ad1fc63252e4e3c3d"
+}

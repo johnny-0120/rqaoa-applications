@@ -1,0 +1,17 @@
+{
+  "reason": "Naive local dot-product graph failed on torus/slab; exploratory stronger geometric model",
+  "cases": "all 36 geometry cases unchanged",
+  "kernel": "sum over points in patch i of n_i dot dipole-field from patch j, symmetrized; no truth used",
+  "scope": "exploratory follow-up on development cases, not held-out validation",
+  "methods": [
+    "exact",
+    "mst",
+    "spectral",
+    "sdp256",
+    "local32",
+    "anneal8",
+    "edge_contract",
+    "rqaoa_p1",
+    "local_cpu_matched"
+  ]
+}

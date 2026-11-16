@@ -1,0 +1,26 @@
+{
+  "rule": "per-family medians from discovery only; gamma=alpha/RMS weighted degree",
+  "training": "n16/20 seeds0..3",
+  "parameters": {
+    "paintshop": {
+      "alpha": 1.0224714918295879,
+      "beta": 0.3789426394678974,
+      "training_residuals": 112
+    },
+    "dense_positive": {
+      "alpha": 0.8867324953075324,
+      "beta": 0.28125018108733185,
+      "training_residuals": 112
+    },
+    "sk_gaussian": {
+      "alpha": 0.9671160462752717,
+      "beta": 0.36928743685726,
+      "training_residuals": 112
+    },
+    "signed_regular3": {
+      "alpha": 1.0392801482079093,
+      "beta": 0.38162167973207783,
+      "training_residuals": 112
+    }
+  }
+}

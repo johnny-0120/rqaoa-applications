@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "repository": "https://github.com/vijeycreative/XQAOA-BPSP",
+      "commit": "c380c935f48d328cba85d259f244cd4866100404",
+      "used": "BPSP_Star.py executed; BPSP_Recursive.py executed for validation",
+      "license": "MIT declaration retained in source headers"
+    },
+    {
+      "repository": "https://github.com/vijeycreative/NOpt_QAOA1_Tuning",
+      "commit": "100885013dc6320f9e9b94798af98728deec767e",
+      "used": "read for method context; own validated formulas used, author dense code not executed"
+    }
+  ],
+  "files": {
+    "author_repo_tree.json": "de6010920346864a6038831fca02b17fc19ec2554d7efb8ff81c2b3edb249807",
+    "BPSP_Greedy.py": "b79fc6562e8793872026b90305100c00a2e708375259a4b817e70ca01130d3d9",
+    "BPSP_Recursive.py": "99f71242c5a4aac2b5853e9f477ab8f2826aac88fc7039c91925e4d4f39fb190",
+    "BPSP_Star.py": "09b41964d563864cb35c96f215908718057ef5e4293d595994268faa1e0f230e",
+    "dense_graphs.py": "f0f1874125b50d3f8463a2234075a2284d7e30dec2407853a67c822f91a90fd8",
+    "dense_README.md": "fd81ef6bae9a738becd1d2ec5e71a1980c1cb29e73930a44fe3e00a95c47428a",
+    "dense_repo_tree.json": "c2210930df2c30f2c82e044f7f01b8ba545f210343bcc2f5a35d68ee4f975a2d",
+    "dense_RQAOA.py": "d6aa42c0420a8cc30ef1ef30e2ceb506ce9e1df46072a21caa4133b60621fdff",
+    "dense_solvers.py": "6013863afb14b93ae621c6ddd75a0b4a439fe6de66e4ee25d30aa0992e519863",
+    "README.md": "34ad7e59c74bfa7f8787019161bdd89e15eb36eaafccb7cd8b4a9e032a6d388d"
+  },
+  "papers": [
+    "https://arxiv.org/abs/2507.10908",
+    "https://arxiv.org/abs/2509.15294",
+    "https://arxiv.org/abs/2501.16419",
+    "https://arxiv.org/abs/1910.08980",
+    "https://arxiv.org/abs/2611.08646"
+  ]
+}

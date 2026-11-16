@@ -1,0 +1,267 @@
+
+SLIDE 1
+NTU IBM QISKIT HACKATHON
+Group 9
+Westtland Li, Haeseong Kim, Cheng-Hao Wu, Chia-Chin Huang,Tzu-Chin Chuang
+14
+ August, 2026
+Benchmarking QAOA across Diverse Graph Structures
+
+SLIDE 2
+Problem Definition
+Benchmarking QAOA to solve MaxCut Problem across eight graph structures: Path, Star, Cycle, Tree, Complete, Bipartite, Community, and Random.
+Examine how graph structure and QAOA depth (P = 1, 2, 3) affect solution quality and optimization stability.
+Evaluate trade-offs among circuit depth, solution quality, noise sensitivity, and gate cost.
+Our Approach
+Established exact MaxCut references using brute force for 10-node graphs and SCIP for larger instances.
+Ran complete 10-node experiments using Ideal Aer, IBM-calibrated Noisy Aer, Heron, and Nighthawk.
+Measured approximation ratio, optimal-solution probability, convergence stability, noise loss, circuit depth, and two qubit gate count.
+Compared Heron, Nighthawk, and QOPT-optimized Heron to evaluate hardware topology and routing efficiency.
+Research Goal
+Identify which graph structures and QAOA depths provide a balance between solution quality, robustness, and hardware execution cost.
+Determine when classical simulation becomes impractical and whether hardware topology and QAOA-specific routing can reduce circuit depth and noise-induced performance loss.
+PROBLEM DEFINITION & OUR APPROACH
+
+SLIDE 3
+GRAPHS WE CONSIDERED 
+8 Classes of G
+raphs
+Random Graph
+Bipartite Graph
+(Balanced)
+Community Graph
+Star Graph
+Tree Graph
+Cycle Graph
+Complete Graph
+Path Graph
+
+SLIDE 4
+EXPERIMENTAL FRAMEWORK
+Graph Set
+Eight graph families with 10 nodes; representative 30 and 50 node cases for scalability.
+Exact Reference
+Brute force for small graphs and SCIP for larger graphs.
+QAOA Optimization
+Optimize p = 1, 2, 3 on using Ideal Aersimulator, Noisy simulator, Real QPU (Heron, Nighthawk)
+Execution
+Run the best parameters on Ideal Aer, IBM-calibrated Noisy Aer, Heron, and Nighthawk with 4,096 shots.
+Evaluation
+Compare solution quality, convergence stability, noise sensitivity, circuit depth, and two-qubit gate cost.
+MAKE 
+GRAPHS → EXACT SOLUTION → QAOA OPTIMIZATION → SIMULATION/QPU EXECUTION → EVALUATION
+
+SLIDE 5
+METRICS(FUNDAMENTAL)
+Approximation Ratio
+How close is the expected cut to optimal?
+Optimal Solution Probability 
+How often do we actually obtain an optimum?
+Convergence Stability
+How consistent is convergence across runs?
+Convergence Speed S
+
+SLIDE 6
+RESULTS(FUNDAMENTAL)
+Approximation ratio of bipartite graphs is in general lower than expected.
+Noisy approximation ratio decreases as expected
+
+SLIDE 7
+RESULTS(BIPARTITE)
+Approximation ratio of 
+bipartite
+ graphs is 
+negatively
+ correlated to bipartite edge probability
+Edge probability correlates directly to edge density
+
+SLIDE 8
+METRICS(ADVANCED)
+Edge Density
+How densely connected? 
+Degree Variance 
+How uneven are degrees?
+Clustering Coefficient
+How locally clustered?
+Odd-cycle Structure
+How many triangles?
+Symmetry
+How structurally symmetric?
+Optimal-solution Degeneracy
+How many optimal cuts?
+
+SLIDE 9
+RESULTS(ADVANCED EDGE DENSITY)
+Approximation ratio of 
+random
+ graphs is 
+positively
+ correlated with edge density
+Approximation ratio of 
+bipartite
+ graphs is 
+negatively
+ correlated with edge density
+
+SLIDE 10
+RESULTS(ADVANCED DEGREE VARIANCE)
+Approximation ratio of 
+tree
+ graphs is 
+positively
+ correlated with degree variance
+Implementation on a real device dulls the correlation due to error
+
+SLIDE 11
+RESULTS(ADVANCED ODD-CYCLE STRUCTURE)
+For all graphs that contains triangles, approximation ratio is 
+positively
+ correlated with triangle count
+These include 
+random
+ graphs and 
+community
+ graphs
+
+SLIDE 12
+RESULTS(ADVANCED DEGENERACY)
+Approximation ratio of 
+random
+ graphs is 
+positively
+ correlated with degeneracy
+Approximation ratio of 
+community
+ graphs is 
+positively
+ correlated with degeneracy
+
+SLIDE 13
+All tests used Aer MPS, P=1, one seed, 100 optimizer iterations, 4,096 shots, and a 600 second timeout
+.
+Sparse graphs remained simulable, but runtime increased sharply with graph structure and edge count.
+Several 30 and 50-node instances failed even at the minimum depth, p=1.
+Denser cases were not executed after lower-edge instances had already exceeded the timeout.
+Nodes
+Graphs
+Edges
+Runtime
+Results
+30
+Path
+29
+1.1s
+Success
+30
+Bipartite P=0.1
+33
+5.2s
+Success
+30
+Bipartite P=0.3
+66
+>
+600s
+Timeout
+30
+C
+ommunity
+104
+95.1s
+Timeout
+30
+T
+ree
+49
+>600s
+Success
+30
+Bipartite P=0.1
+7
+2
+>
+600s
+Timeout
+LIMITATIONS OF CLASSICAL SIMULATION
+
+SLIDE 14
+Key Finding
+Nighthawk reduced depth and 2-qubit gates, but improved quality in only 4 of 6 cases.
+QOPT reduced depth more substantially and improved quality in all 6 cases.
+A shallower circuit does not guarantee better results because performance also depends on gate fidelity, readout error, coherence, and calibration.
+Approach
+Main Mechanism
+Depth Reduction
+Quality Change
+Nighthawk
+Change Hardware topology reduces routing overhead
+13.0%
++
+0.0009
+Heron + QOPT
+QAOA-specific mapping and parallel SWAP scheduling
+66.5%
++0.0112
+TWO APPROACHES TO CIRCUIT DEPTH REDUCTION
+
+SLIDE 15
+
+
+SLIDE 16
+CONCLUSION(SOME USEFUL BENCHMARK)
+Graph Structure Effects on QAOA Performance
+A
+pproximation ratio of 
+bipartite
+ graphs decreases as 
+edge density
+ increases 
+Approximation ratio of 
+random
+ graphs increases as 
+edge density
+ increases
+Approximation ratio of 
+random/community
+ graphs increases as 
+degeneracy
+ increases
+Approximation ratio of 
+tree
+ graphs increases as 
+degree variance
+ increases
+For all graphs that contains triangles, approximation ratio is positively correlated to the
+ triangle count
+According to the Central Limit Theorem, we can obtain an estimated population mean and standard derivation on behalf of each group
+Scaling QAOA Beyond Classical Simulation
+For 
+30 Nodes Problem, motivating execution on real quantum hardware.
+To reduce QPU circuit depth, we evaluated two approaches: the newer Nighthawk processor and QOPT-based circuit optimization.
+
+SLIDE 17
+APPENDIX 1 : CLT GRID
+
+SLIDE 18
+APPENDIX 2 : REFERENCES
+E. Farhi, J. Goldstone, and S. Gutmann, A Quantum Approximate Optimization Algorithm, arXiv:1411.4028, 2014,
+ 
+https://arxiv.
+org/abs/1411.4028
+ 
+R. Herrman et al., Impact of Graph Structures for QAOA on MaxCut, Quantum Information Processing, 21, 109, 2022, 
+https://arxiv.org/abs/2102.05997
+ 
+IBM Quantum Documentation, Quantum Approximate Optimization Algorithm. 
+https://quantum.cloud.ibm.com/docs/en/tutorials/quantum-approximate-optimization-algorithm
+NetworkX Documentation, Graph Generators and Graph Analysis. 
+https://networkx.org/documentation/stable/reference/introduction.html
+GitHub Repository for this project 
+https://github.com/crosses0612/qiskit-hack
+
+SLIDE 19
+FOR LISTENING OUR PRESENTATION!
+Thank you
+Westtland Li, Haeseong Kim, Cheng-Hao Wu, Chia-Chin Huang, Tzu-Chin Chuang
+14
+ August, 2026

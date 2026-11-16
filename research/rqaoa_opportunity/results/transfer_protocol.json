@@ -1,0 +1,7 @@
+{
+  "selection": "All confirmation cases, no exclusions",
+  "parameter_training": "Discovery only, per-family median with RMS scaling",
+  "test_optimization": "none",
+  "classical_comparison": "same CPU wall budget local search; also local32, SDP1024 and full-RQ from main experiment",
+  "postprocessing": "single local improvement also reported separately, and SDP/local baselines retained"
+}

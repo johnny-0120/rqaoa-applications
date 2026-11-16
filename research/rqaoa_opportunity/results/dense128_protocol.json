@@ -1,0 +1,32 @@
+{
+  "n": 128,
+  "configs": [
+    [
+      0.3,
+      400
+    ],
+    [
+      0.3,
+      401
+    ],
+    [
+      0.7,
+      400
+    ],
+    [
+      0.7,
+      401
+    ]
+  ],
+  "weights": "rounded Gaussian mean50 variance30",
+  "rqaoa": "near-zero first peak, edge-only, cutoff8; own implementation inspired by arXiv2501.16419v4",
+  "comparators": [
+    "SDP1024",
+    "SDP1024 + local",
+    "local32",
+    "CPU-matched local",
+    "CPU-matched tabu"
+  ],
+  "scope": "four-instance feasibility probe, no global optimum or significance claim",
+  "advantage_metric": "raw score and weighted MaxCut, avoid signed energy ratio"
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-07",
+  "status": "completed",
+  "counts": {
+    "results/benchmark.csv": 98,
+    "results/shot_sensitivity.csv": 180,
+    "results/cutoff_sensitivity.csv": 45,
+    "results/scale.csv": 4
+  },
+  "pdf_pages": 9,
+  "pdf_visual_review": "All nine pages inspected; density and shot figure spacing corrected and final affected pages re-inspected. No overflow or replacement glyphs found.",
+  "checks": [
+    "16 signed-weight correlation cases vs Qiskit",
+    "16 substitution constant checks",
+    "Aer cycle6 4096 shots",
+    "98 original expectations vs statevector",
+    "98 reconstructed cuts vs edge count",
+    "3 independent bit-enumeration optimal values"
+  ],
+  "sha256": {
+    "rqaoa_experiment.py": "280a047050fa0c214369264c5ae56cdbbe47a1b71e266931f2d228d2e8132693",
+    "rqaoa_followup.py": "67316b6fc3326de06b866d425ac2bf893064d5184bda9464e920cb4c9f7fd388",
+    "audit_results.py": "6fcde4954995de8d13f6d24297edc42c6a11e98f26062a6fe5f405cf4661b181",
+    "make_report.py": "265a8e04e29b1d36dba66078e564aab57ed2ab8cb7f376c6c0739823dfd1e4b9",
+    "requirements-lock.txt": "3d3d69989692e98b5f0166e4b6320d3aa77c5833b37e7e45d239578e0662d979",
+    "output/pdf/Recursive_QAOA_實測報告.pdf": "2014373f5828357e9bf5e9d811039970e4b3d4407077c9ff84f9974a57ad66b3"
+  }
+}

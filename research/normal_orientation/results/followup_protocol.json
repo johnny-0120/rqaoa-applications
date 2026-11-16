@@ -1,0 +1,7 @@
+{
+  "timing": "local search uses per-case measured RQAOA CPU time; allow one final restart to finish, record actual time",
+  "shots": "all n=12 control cases with corruption .1 or .25, 256/2048 decision shots, 3 seeds each; exact training unchanged",
+  "refinement": "all n=16 seed=0 control cases with corruption .1 or .25; 257 grid, gamma range [0,4pi]",
+  "wnnc": "all geometry cases, published sparse-point l5 widths [.05,.2], 40 iterations; report alongside default l0, not selected per instance",
+  "failure_audit": "all main-run nonoptimal RQAOA cases; enumerate constrained optimum after every reduction"
+}

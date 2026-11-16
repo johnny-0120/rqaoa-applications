@@ -1,0 +1,9 @@
+{
+  "rows": 72,
+  "max_numpy_vs_qiskit_probability_error": 1.5959455978986625e-16,
+  "seconds": 2.1268587999948068,
+  "p1_note": "Deterministic analytic optimizer repeated across optimizer-seed labels, not independent random p1 training.",
+  "higher_depth_budget": "Nominal maxfun 800 per optimizer seed; scipy may finish a finite-difference batch after the cap. Actual calls recorded in CSV.",
+  "optimizer": "L-BFGS-B with interpolated warm starts; post-pilot refinement, retained Powell pilot separately",
+  "rqaoa_depth": "RQAOA remains p=1; depth panel is standard QAOA only"
+}

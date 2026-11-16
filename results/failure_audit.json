@@ -1,0 +1,110 @@
+[
+  {
+    "id": 44,
+    "family": "random",
+    "n": 12,
+    "seed": 4,
+    "p": 0.5,
+    "stage": 1,
+    "optimal_assignments_before": 2,
+    "first_incompatible_constraint": {
+      "remaining": 12,
+      "keep": 2,
+      "remove": 7,
+      "sign": -1,
+      "correlation": -0.24753768516374808,
+      "gap": 0.00808634640007333,
+      "nonzero_edges": 34,
+      "max_weight": 1.0,
+      "fit": {
+        "gamma": 0.3919903843880489,
+        "beta": 0.3018971224862231,
+        "expectation": 20.042629177590005,
+        "evaluations": 170,
+        "seconds": 0.02028759999666363
+      }
+    },
+    "result_ratio": 0.92
+  },
+  {
+    "id": 46,
+    "family": "random",
+    "n": 16,
+    "seed": 1,
+    "p": 0.5,
+    "stage": 1,
+    "optimal_assignments_before": 4,
+    "first_incompatible_constraint": {
+      "remaining": 16,
+      "keep": 6,
+      "remove": 8,
+      "sign": -1,
+      "correlation": -0.2287397631644883,
+      "gap": 0.005303811023246757,
+      "nonzero_edges": 56,
+      "max_weight": 1.0,
+      "fit": {
+        "gamma": 0.3574832512873014,
+        "beta": 0.30817611901376973,
+        "expectation": 32.580769505717136,
+        "evaluations": 173,
+        "seconds": 0.03478010000253562
+      }
+    },
+    "result_ratio": 0.95
+  },
+  {
+    "id": 52,
+    "family": "random",
+    "n": 12,
+    "seed": 2,
+    "p": 0.8,
+    "stage": 1,
+    "optimal_assignments_before": 2,
+    "first_incompatible_constraint": {
+      "remaining": 12,
+      "keep": 0,
+      "remove": 7,
+      "sign": -1,
+      "correlation": -0.15140389470076115,
+      "gap": 0.0,
+      "nonzero_edges": 50,
+      "max_weight": 1.0,
+      "fit": {
+        "gamma": 5.99287891357682,
+        "beta": 1.3246746909520377,
+        "expectation": 27.77785956178602,
+        "evaluations": 172,
+        "seconds": 0.021815300002344884
+      }
+    },
+    "result_ratio": 0.96875
+  },
+  {
+    "id": 56,
+    "family": "random",
+    "n": 16,
+    "seed": 1,
+    "p": 0.8,
+    "stage": 4,
+    "optimal_assignments_before": 2,
+    "first_incompatible_constraint": {
+      "remaining": 13,
+      "keep": 2,
+      "remove": 8,
+      "sign": -1,
+      "correlation": -0.286056478783857,
+      "gap": 0.10652464988054416,
+      "nonzero_edges": 66,
+      "max_weight": 2.0,
+      "fit": {
+        "gamma": 6.026275794548854,
+        "beta": 1.3255917576363803,
+        "expectation": 33.89104549433051,
+        "evaluations": 178,
+        "seconds": 0.02228130000003148
+      }
+    },
+    "result_ratio": 0.9830508474576272
+  }
+]

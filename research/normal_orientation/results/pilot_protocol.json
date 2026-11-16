@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-12",
+  "task": "conditional patch-sign normal orientation",
+  "shapes": [
+    "sphere",
+    "torus",
+    "thin_slab"
+  ],
+  "sizes": [
+    12
+  ],
+  "seeds": [
+    0
+  ],
+  "control_corruption": [
+    0.0,
+    0.1,
+    0.25
+  ],
+  "points_per_patch": 12,
+  "cutoff": 4,
+  "p": 1,
+  "gamma_grid": 129,
+  "gamma_max": 6.283185307179586,
+  "geometry_ports": [
+    "dipole_patch_numpy",
+    "wnnc_dense_numpy_l0"
+  ],
+  "scope": "analytic local normal axes supplied, no PCA/neural local estimation, no real scan or reconstruction",
+  "comparison": "fixed settings, CPU wall time measured; not equal total budgets; exact ideal training",
+  "wnnc_commit": "175b116580c9c49e8f8d421fb17eee10fcddc198",
+  "dipole_commit": "72ba66b6a54858ebdb34de44afaefaeabfeee81b"
+}

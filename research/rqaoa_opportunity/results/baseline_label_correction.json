@@ -1,0 +1,38 @@
+{
+  "reason": "First-occurrence insertion is not the published RG. Renamed descriptively; no solution or numeric value changed. Canonical RG and author RSG independently added in paint_canonical_RG.csv.",
+  "records": [
+    {
+      "phase": "pilot",
+      "before_sha256": {
+        "pilot.csv": "85dc199dd502dea5f2136d45dc8e239cf9f8e37441427bcceef6dee83f1dfa4d",
+        "pilot_details.json": "53b312e2232464312a80310a9dfdbbf5401c697dc02a2e8d2d8ed4746b1a09d6"
+      },
+      "after_sha256": {
+        "pilot.csv": "992fe86ba9d78b9491f0ff8223857d3fd784e16fa3906442c4f4609e86ee7488",
+        "pilot_details.json": "b2554adc0260f1678aedbfa8522300c9f8228cfa5cc090292131b746627cfcd3"
+      }
+    },
+    {
+      "phase": "discovery",
+      "before_sha256": {
+        "discovery.csv": "5da901901ae516a080d9d09a6ad126754330ca16a0eb1e76b2ecddf7554e4e31",
+        "discovery_details.json": "07c972935496bb1ec55a2b2b935844877c6ccaa2c1d6948cd049f6d8edeac50e"
+      },
+      "after_sha256": {
+        "discovery.csv": "1ffd77ffcba763a2abee5aebf3451d04c4fc73635718cb4d714ee281d2d3e3df",
+        "discovery_details.json": "b15fc71c0e7fc300179e21d1278ce084acedc24f98a290124f3bc284dcbbe185"
+      }
+    },
+    {
+      "phase": "confirmation",
+      "before_sha256": {
+        "confirmation.csv": "c70a23be5697b625266611d730f98f83872efe625326ec4fb4092f1540a9456e",
+        "confirmation_details.json": "92bb99c7ffa584f1223a434097c595711635abd8f2d8887ec6fb00948e01ee60"
+      },
+      "after_sha256": {
+        "confirmation.csv": "4bf4ab7ad52553207e6a2ce0ae9aaf00caf594ebdb3751663835a0e0db441335",
+        "confirmation_details.json": "c57bedc49fdef98710bc24a11986606f1174063f25a950e2f1178d3702552afb"
+      }
+    }
+  ]
+}

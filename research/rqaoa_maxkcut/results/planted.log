@@ -1,0 +1,22 @@
+planted 30 4 0 RQ 2.0 time 11.1
+planted 30 4 1 RQ 1.0 time 15.2
+planted 30 4 2 RQ 2.0 time 10.8
+planted 30 4 3 RQ 1.0 time 14.6
+planted 30 4 4 RQ 1.0 time 14.1
+planted 30 6 0 RQ 0.0 time 8.3
+planted 30 6 1 RQ 4.0 time 15.7
+planted 30 6 2 RQ 0.0 time 11.6
+planted 30 6 3 RQ 0.0 time 11.6
+planted 30 6 4 RQ 3.0 time 13.4
+planted 60 4 0 RQ 3.0 time 33.3
+planted 60 4 1 RQ 3.0 time 31.8
+planted 60 4 2 RQ 4.0 time 30.3
+planted 60 4 3 RQ 2.0 time 31.8
+planted 60 4 4 RQ 3.0 time 35.4
+planted 60 6 0 RQ 13.0 time 39.7
+./research\rqaoa_maxkcut\baselines.py:200: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(solver=cp.SCS, eps=1e-6, max_iters=20000)
+planted 60 6 1 RQ 13.0 time 30.1
+planted 60 6 2 RQ 12.0 time 30.0
+planted 60 6 3 RQ 8.0 time 27.1
+planted 60 6 4 RQ 11.0 time 29.2

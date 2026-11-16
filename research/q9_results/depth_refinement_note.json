@@ -1,0 +1,4 @@
+{
+  "reason": "Initial Powell higher-depth runs showed frequent retention of embedded lower-depth states; add warm interpolated starts and gradient-based local search to assess optimizer sensitivity. Pilot retained, revised run is exploratory, not preregistered.",
+  "method": "L-BFGS-B with interpolated warm starts and three fixed perturbation seeds; 800 function-call nominal cap per run."
+}

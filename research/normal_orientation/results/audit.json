@@ -1,0 +1,43 @@
+{
+  "rescored_outputs": 1656,
+  "max_rescore_error": 2.1316282072803006e-14,
+  "max_sdp_diagonal_error": 9.481397889032905e-09,
+  "min_sdp_eigenvalue": -5.530373217762448e-07,
+  "max_sdp_bound_violation": 8.701554996548566e-07,
+  "max_gauge_covariance_error": 0.0,
+  "truth_independence_error": 0.0,
+  "dipole_gauge_error": 0.0,
+  "wnnc_gauge_error": 0.0,
+  "discovered_failure_parameter_refinement": [
+    {
+      "case": 11,
+      "original_score": 2.881404358362174,
+      "refined_score": 2.881404358362174,
+      "optimum": 3.0078193074028077,
+      "seconds": 0.2105001000163611
+    },
+    {
+      "case": 22,
+      "original_score": 5.09076923102392,
+      "refined_score": 5.09076923102392,
+      "optimum": 5.129653725567333,
+      "seconds": 0.398693800001638
+    },
+    {
+      "case": 27,
+      "original_score": 4.967594205139886,
+      "refined_score": 4.967594205139886,
+      "optimum": 5.196928096150522,
+      "seconds": 0.5647365000040736
+    }
+  ],
+  "file_hashes": {
+    "cpu_matched.csv": "9ce0d34dfadbc5cdca89c549bd9bed9f88df736c0b136e7bf0d6f1b6e325d465",
+    "geometry_graph.csv": "a64f9123a843ad62157ddbe6ea750962a81f80235fb73b3dd4fd8aaea18e1ff4",
+    "main.csv": "3507ce6f497f8d5e2a9266cf688fd1cdd8f65962b8bcb921721fd366c0c865ef",
+    "parameter_refinement.csv": "2b7d87ce2af5e95c85f7e48ec2e42f3f653f81cd462343322c91b04ce580c583",
+    "pilot_rows.csv": "d399c1ab1ca931c8657704d5a42489db7c3a0f3122f6ed8a826ae77e2aa147cc",
+    "shots.csv": "72316e0acc3445e3d134e160dcf1b71de20197847718ccbb23e22db7224f33e6",
+    "wnnc_sparse_width.csv": "5b84f5d556d6d4253a2b2e2c329cc22a40d052692d0ff00b8e68e7e2c3e9663a"
+  }
+}

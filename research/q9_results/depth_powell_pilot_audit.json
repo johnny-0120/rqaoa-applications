@@ -1,0 +1,8 @@
+{
+  "rows": 72,
+  "max_numpy_vs_qiskit_probability_error": 1.5959455978986625e-16,
+  "seconds": 7.8187873999995645,
+  "p1_note": "Deterministic analytic optimizer repeated across optimizer-seed labels, not independent random p1 training.",
+  "higher_depth_budget": "800 objective calls per optimizer seed; three seeds = at most 2400 per family-depth",
+  "rqaoa_depth": "RQAOA remains p=1; depth panel is standard QAOA only"
+}

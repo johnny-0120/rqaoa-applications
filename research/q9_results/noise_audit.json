@@ -1,0 +1,8 @@
+{
+  "rows": 45,
+  "seconds": 5.5860532999940915,
+  "backend": "Aer density_matrix",
+  "parameter_training": "ideal analytic p1 at every recursive stage",
+  "noise": "Depolarizing parameter on every decomposed CX; 1% readout when parameter>0; no calibrated hardware, T1/T2, routing or noisy training",
+  "rq_variant": "edge-only unrestricted domain"
+}

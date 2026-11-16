@@ -1,0 +1,8 @@
+{
+  "cases": 40,
+  "rows": 400,
+  "seconds": 276.5092331999913,
+  "python": "3.11.15 (main, Apr 14 2026, 14:31:26) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "code_sha256": "09dec586a3175d7cb63673c4570ae1415128071cc8463ee1bae69e63313605a6"
+}

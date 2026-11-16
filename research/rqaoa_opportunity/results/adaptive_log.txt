@@ -1,0 +1,16 @@
+64 500 rq 20 bt 20 best 20 t_rq 0.06 t_bt 0.32
+64 501 rq 21 bt 17 best 16 t_rq 0.05 t_bt 0.3
+64 502 rq 19 bt 18 best 18 t_rq 0.05 t_bt 0.28
+64 503 rq 22 bt 21 best 21 t_rq 0.06 t_bt 0.3
+64 504 rq 25 bt 23 best 23 t_rq 0.05 t_bt 0.28
+64 505 rq 21 bt 20 best 17 t_rq 0.06 t_bt 0.35
+64 506 rq 19 bt 19 best 19 t_rq 0.05 t_bt 0.33
+64 507 rq 20 bt 20 best 20 t_rq 0.05 t_bt 0.29
+64 508 rq 21 bt 21 best 21 t_rq 0.05 t_bt 0.3
+64 509 rq 20 bt 20 best 20 t_rq 0.05 t_bt 0.33
+128 600 rq 45 bt 41 best 39 t_rq 1.43 t_bt 12.12
+128 601 rq 39 bt 39 best 37 t_rq 1.22 t_bt 8.09
+128 602 rq 43 bt 36 best 34 t_rq 1.25 t_bt 8.71
+128 603 rq 44 bt 43 best 39 t_rq 1.61 t_bt 12.3
+128 604 rq 46 bt 38 best 38 t_rq 1.21 t_bt 8.45
+128 605 rq 39 bt 37 best 37 t_rq 1.54 t_bt 10.33

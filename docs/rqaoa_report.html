@@ -1,0 +1,525 @@
+<title>RQAOA 應用方向結果報告</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: single reading column (~68ch) with full-width tables; chips encode evidence strength. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#1b2230; --muted:#5a6475; --line:#dde2ea;
+  --accent:#24589a; --accent-soft:#e6eef8;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --warn:#9a6200; --warn-soft:#fbf0d9; --no:#7a3b3b; --no-soft:#f6e6e6;
+  --bar:#24589a; --bar-q:#c27a12;
+  --red:#c8463c; --blue:#2f6fb5; --car-fg:#ffffff;
+  --f-display:"Space Grotesk","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-body:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11151c; --surface:#181e27; --fg:#e4e8ef; --muted:#9aa4b4; --line:#2a3240;
+  --accent:#7fb0ea; --accent-soft:#1d2a3b;
+  --ok:#6fd0a0; --ok-soft:#173026; --warn:#e8b45a; --warn-soft:#33270f; --no:#e39a9a; --no-soft:#352020;
+  --bar:#6f9fd8; --bar-q:#e8a23a; --red:#d9645a; --blue:#4f8fd6; --car-fg:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151c; --surface:#181e27; --fg:#e4e8ef; --muted:#9aa4b4; --line:#2a3240;
+  --accent:#7fb0ea; --accent-soft:#1d2a3b;
+  --ok:#6fd0a0; --ok-soft:#173026; --warn:#e8b45a; --warn-soft:#33270f; --no:#e39a9a; --no-soft:#352020;
+  --bar:#6f9fd8; --bar-q:#e8a23a; --red:#d9645a; --blue:#4f8fd6; --car-fg:#ffffff; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.8}
+.wrap{max-width:820px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:48px}
+header{display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;color:var(--muted)}
+h1{font-family:var(--f-display);font-size:clamp(28px,5vw,38px);line-height:1.25;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-size:23px;line-height:1.35;margin:0;text-wrap:balance}
+h3{font-size:17px;margin:0;line-height:1.45}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:16px;min-width:0}
+.meta{color:var(--muted);font-size:14px}
+.lead{font-size:17.5px}
+ul,ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+.tldr{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.tldr li::marker{color:var(--accent);font-weight:700}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.03em;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hl td{background:var(--accent-soft)}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+.c-ok{background:var(--ok-soft);color:var(--ok)}
+.c-warn{background:var(--warn-soft);color:var(--warn)}
+.c-no{background:var(--no-soft);color:var(--no)}
+.c-acc{background:var(--accent-soft);color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel h3{font-size:15.5px}
+.cars{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.car{width:44px;height:44px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--car-fg);font-family:var(--f-mono);font-weight:500;font-size:15px;line-height:1.1}
+.car small{font-size:10px;opacity:.85}
+.car.r{background:var(--red)}
+.car.b{background:var(--blue)}
+.car.plain{background:var(--bg);color:var(--fg);border:1px dashed var(--muted)}
+.sw{font-family:var(--f-mono);font-size:12px;color:var(--warn);font-weight:700;width:14px;text-align:center}
+.nosw{width:14px}
+.row-lab{font-size:14px;color:var(--muted)}
+.row-lab b{color:var(--fg)}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.chart h3{font-size:15px}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:9.5em 1fr 3.6em;gap:10px;align-items:center;font-size:13.5px}
+.bar .lab{color:var(--muted);text-align:right}
+.bar .track{height:14px;background:var(--bg);border-radius:2px;position:relative;overflow:hidden}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--bar);border-radius:2px}
+.bar.q .fill{background:var(--bar-q)}
+.bar.q .lab{color:var(--fg);font-weight:700}
+.bar .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:9.5em 1fr 3.6em;gap:10px;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.axis .ticks{display:flex;justify-content:space-between}
+@media (max-width:480px){.bar,.axis{grid-template-columns:7.5em 1fr 3.2em}}
+.note{font-size:13.5px;color:var(--muted)}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 6px 6px 0;font-size:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.two>div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.two h3{font-size:15.5px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:700px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.flow{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.step .k{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.05em}
+.step h3{font-size:15px}
+.step p{font-size:14px;color:var(--muted)}
+.mock{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.verdict{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.verdict .big{font-family:var(--f-display);font-size:20px;font-weight:700;color:var(--warn)}
+.checks{display:grid;grid-template-columns:auto 1fr auto;gap:6px 12px;font-size:14px;align-items:baseline}
+.checks .val{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.refs{font-size:13.5px;display:flex;flex-direction:column;gap:6px;padding-left:1.6em}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toc{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:6px}
+.toc a{font-size:13.5px;text-decoration:none;background:var(--accent-soft);color:var(--accent);padding:3px 10px;border-radius:999px}
+.toc a:hover{text-decoration:underline}
+section{scroll-margin-top:16px}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);padding:0 4px;border-radius:3px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">2026 全國智慧運算與量子資訊創新應用競賽 · Recursive QAOA 分線</div>
+  <h1>RQAOA 可以用在哪裡？</h1>
+  <p class="meta">報告人：Johnny（RQAOA 線）· 2026-11-14 · 五輪本機實測與文獻查核 · 全部是電腦模擬，未上量子真機</p>
+  <nav class="toc" aria-label="目錄">
+    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
+  </nav>
+</header>
+
+<section id="tldr">
+  <h2>三句話結論</h2>
+  <div class="tldr">
+    <ol>
+      <li><b>應用一：汽車噴漆換色。</b>RQAOA 排出的噴漆順序，比這個問題原本的專用方法少 11–14% 的換色次數，40 個新案例中 32 勝 8 平 0 負。</li>
+      <li><b>應用二：RQAOA 適用性檢測網站。</b>使用者丟一小段自己的資料進去，網站就能告訴他「這份資料適不適合用 RQAOA 來跑」。這是把我們五輪實驗的經驗，做成別人能直接用的工具。</li>
+      <li><b>要誠實講的限制：</b>RQAOA 還贏不過最強的古典方法（禁忌搜尋）。我們的貢獻是「找出它適合哪裡、贏過哪些方法」，不是「量子比古典快」。</li>
+    </ol>
+  </div>
+</section>
+
+<section id="what">
+  <h2>先用一分鐘看懂 RQAOA</h2>
+  <p>想像要把一群人分成兩隊，目標是讓「不該同隊的人」盡量不同隊。</p>
+  <ul>
+    <li><b>一般 QAOA</b>：一次猜出所有人的隊伍。人一多，常常猜得很亂。</li>
+    <li><b>RQAOA</b>：每一輪只做一件最有把握的事，例如「小明和小華一定同隊」，就把兩人綁成一個人。問題少一個人，再看下一對最有把握的。綁到剩下幾個人時，直接把所有可能都試一遍，再一路把答案還原回去。</li>
+  </ul>
+  <p>所以 RQAOA 擅長的是：<b>「兩個東西要相同還是相反」比「每個東西本身是什麼」更容易判斷</b>的問題。它的弱點是：前面綁錯一對，後面就救不回來。</p>
+</section>
+
+<section id="app1">
+  <h2>應用一：汽車噴漆換色在解什麼</h2>
+  <p class="lead">汽車工廠的噴漆線上，車子一台接一台排隊經過噴槍。<b>排隊順序由前面的組裝線決定，不能改。</b></p>
+  <ul>
+    <li><b>規則</b>：同一款車剛好出現兩台，一台要噴紅、一台要噴藍。哪一台先噴紅，可以自己決定。</li>
+    <li><b>成本</b>：噴槍每從紅換到藍（或藍換到紅），就要停下來用溶劑清洗管線，浪費油漆、時間，也會多排放揮發性有機物。</li>
+    <li><b>目標</b>：替每款車決定「先紅還是先藍」，讓整條線的換色次數最少。</li>
+  </ul>
+
+  <div class="panel">
+    <h3>小例子：6 台車，順序是 A B A C B C</h3>
+    <div class="cars" aria-label="排隊順序">
+      <div class="car plain">A</div><span class="nosw"></span><div class="car plain">B</div><span class="nosw"></span><div class="car plain">A</div><span class="nosw"></span><div class="car plain">C</div><span class="nosw"></span><div class="car plain">B</div><span class="nosw"></span><div class="car plain">C</div>
+    </div>
+    <p class="row-lab"><b>排法一：換色 3 次</b>（A 先紅、B 先藍、C 先紅）</p>
+    <div class="cars" aria-label="排法一：紅 藍 藍 紅 紅 藍，換色 3 次">
+      <div class="car r">A<small>紅</small></div><span class="sw">↔</span><div class="car b">B<small>藍</small></div><span class="nosw"></span><div class="car b">A<small>藍</small></div><span class="sw">↔</span><div class="car r">C<small>紅</small></div><span class="nosw"></span><div class="car r">B<small>紅</small></div><span class="sw">↔</span><div class="car b">C<small>藍</small></div>
+    </div>
+    <p class="row-lab"><b>排法二：換色 2 次</b>（A 先紅、B 先紅、C 先藍），這是最少的</p>
+    <div class="cars" aria-label="排法二：紅 紅 藍 藍 藍 紅，換色 2 次">
+      <div class="car r">A<small>紅</small></div><span class="nosw"></span><div class="car r">B<small>紅</small></div><span class="sw">↔</span><div class="car b">A<small>藍</small></div><span class="nosw"></span><div class="car b">C<small>藍</small></div><span class="nosw"></span><div class="car b">B<small>藍</small></div><span class="sw">↔</span><div class="car r">C<small>紅</small></div>
+    </div>
+    <p class="note">↔ 代表噴槍要換色一次。6 台車只差 1 次，但真實產線一天上千台，每次換色都是成本。</p>
+  </div>
+
+  <h3>為什麼這題剛好適合 RQAOA</h3>
+  <ul>
+    <li><b>每款車就是一個二選一的開關</b>：先紅或先藍，正好是一個 qubit。</li>
+    <li><b>「同款兩台必須不同色」自動成立</b>：只要決定第一台，第二台就是另一色，不需要額外懲罰項。</li>
+    <li><b>RQAOA 每一步做的事，就是工廠排程的決定</b>：「A 款和 B 款要同步」或「A 款和 C 款要相反」，然後把它們綁在一起。</li>
+    <li><b>關係很單純</b>：每次換色成本都一樣（都算 1 次），每台車只跟前後兩台有關，圖很稀疏。這正是 RQAOA 最擅長的結構。</li>
+  </ul>
+  <p class="note">我們口中的「二元分群換色」，就是把所有車款分成「先紅組」和「先藍組」兩群，讓換色最少。學術名稱是 Binary Paint Shop Problem，最早由 Epping 等人（2004）依汽車廠的實際需求提出。</p>
+</section>
+
+<section id="result1">
+  <h2>應用一的實驗結果</h2>
+  <div class="chart" role="img" aria-label="64 款車、20 個全新案例的平均換色次數比較">
+    <h3>64 款車（128 台）、20 個全新案例的平均換色次數（越少越好）</h3>
+    <div class="bars">
+      <div class="bar"><span class="lab">局部搜尋 32 起點</span><span class="track"><span class="fill" style="width:96.92%"></span></span><span class="v">25.20</span></div>
+      <div class="bar"><span class="lab">專用方法 RSG</span><span class="track"><span class="fill" style="width:93.85%"></span></span><span class="v">24.40</span></div>
+      <div class="bar q"><span class="lab">RQAOA</span><span class="track"><span class="fill" style="width:82.88%"></span></span><span class="v">21.55</span></div>
+      <div class="bar"><span class="lab">禁忌搜尋（同時間）</span><span class="track"><span class="fill" style="width:78.08%"></span></span><span class="v">20.30</span></div>
+      <div class="bar"><span class="lab">SDP＋局部修補</span><span class="track"><span class="fill" style="width:78.08%"></span></span><span class="v">20.30</span></div>
+    </div>
+    <div class="axis"><span></span><span class="ticks"><span>0</span><span>13</span><span>26</span></span><span></span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>比較對象</th><th>它是什麼</th><th class="r">32 款車（20 例）</th><th class="r">64 款車（20 例）</th></tr></thead>
+    <tbody>
+      <tr><td>專用方法 RSG（Hančl 等 2023）</td><td>專為噴漆問題設計的貪婪法</td><td class="r">15 勝 5 平 0 負</td><td class="r">17 勝 3 平 0 負</td></tr>
+      <tr><td>禁忌搜尋（同樣 CPU 時間）</td><td>很強的古典「試錯再改良」方法</td><td class="r">0 勝 16 平 4 負</td><td class="r">0 勝 9 平 11 負</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>比專用方法好</b>：換色平均少 13.5%（32 款）、11.7%（64 款），而且沒有一例輸。</li>
+    <li><b>參數學一次就能重複用</b>：只從 8 個練習案例學參數，凍結後套到 40 個新案例照樣有效。64 款車時每次計算從 9.6 秒降到 0.11 秒。工廠每天都要排新的順序，這點很實用。</li>
+    <li><b>還贏不過禁忌搜尋</b>：平手多半是兩邊都找到最好答案，但 64 款車時禁忌搜尋有 11 例更好。</li>
+  </ul>
+</section>
+
+<section id="where">
+  <h2>應用一還能用在哪裡</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>場景</th><th>對應方式</th><th>狀態</th></tr></thead>
+    <tbody>
+      <tr><td><b>汽車噴漆線</b>（兩種顏色或兩種底漆）</td><td>本題的原始來源</td><td><span class="chip c-ok">已實測</span></td></tr>
+      <tr><td>其他「固定順序＋每件做兩種處理＋切換有成本」的產線</td><td>例如雙色塗裝、兩種配方輪流的加工；每個訂單兩件、各做一種處理</td><td><span class="chip c-warn">結構類似，需實地確認</span></td></tr>
+      <tr><td>3D 列印農場的成對零件（一黑一白）</td><td>排隊順序固定、每個產品兩個零件要異色，和噴漆同一題（見下一節）</td><td><span class="chip c-warn">結構相同，需真實資料</span></td></tr>
+      <tr><td>多色噴漆</td><td>顏色超過兩種時要改成多色版本</td><td><span class="chip c-no">不建議</span>三色版在別的題目上沒有比較好</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">真實工廠還有暫存區可以小幅調換順序、顏色可能很多種；我們測的是「固定順序、兩種顏色」的核心版本。</p>
+</section>
+
+<section id="print3d">
+  <h2>延伸：可以用在 3D 列印嗎？</h2>
+  <p>多色 3D 列印也有「換色成本」：自動換料系統每換一次線材，就要把舊顏色沖掉，浪費線材和時間，跟噴漆線是同一種痛點。<b>但大部分情況不適合 RQAOA，只有一種情境真的對得上。</b></p>
+  <div class="tbl"><table>
+    <thead><tr><th>情境</th><th>為什麼</th><th>適不適合</th></tr></thead>
+    <tbody>
+      <tr><td><b>單一物件、兩色、一層一層印</b></td><td>層的順序固定，每層只跟下一層有關，關係排成一條直線、沒有繞圈。古典「一層一層往下推」的算法（動態規劃）就能瞬間算出最佳解，切片軟體也已經自動處理。</td><td><span class="chip c-no">不需要</span></td></tr>
+      <tr><td><b>4 色、8 色列印的換色順序</b></td><td>每層要決定換色先後，深色換淺色要沖更多料。這是「排順序」問題，不是二選一；三色版 RQAOA 我們實測沒有比較好。</td><td><span class="chip c-no">不建議</span></td></tr>
+      <tr class="hl"><td><b>列印農場的成對零件</b></td><td>單色印表機照固定順序排隊印很多工作；每個產品有兩個零件（例如外殼和蓋子），要求一黑一白，哪個印黑可以自己選；前後顏色不同就要換線材。這和噴漆換色是<b>同一題</b>：每個產品一個二選一開關，兩個零件可能排在隊伍很遠的兩個位置。</td><td><span class="chip c-warn">對得上，需真實資料確認</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">判斷關鍵：噴漆換色會難，是因為<b>同一款的兩次出現隔很遠</b>，前面的決定會牽動很後面，關係繞成一圈一圈。3D 列印的層與層只接前後，沒有這種「遠距離牽連」，所以古典方法就夠了。列印農場的成對零件才重新帶回這個結構。</p>
+  <p class="note">「列印農場成對零件」是我們推論的情境，還沒有實際農場的排程資料。若有同學認識經營列印農場的人，拿到真實排程資料會比合成資料更有說服力。</p>
+</section>
+
+<section id="app2">
+  <h2>應用二：RQAOA 適用性檢測網站</h2>
+  <p class="lead">我們花了五輪才知道 RQAOA 適合什麼、不適合什麼。別人想試 RQAOA 時，不必再從頭試一遍：<b>丟一小段資料進來，幾分鐘內得到「適不適合」的答案和理由。</b></p>
+
+  <div class="flow">
+    <div class="step"><span class="k">步驟 1</span><h3>上傳小樣本</h3><p>一張「誰跟誰有關係、關係多強」的表，例如 20–60 個項目。不用整份資料。</p></div>
+    <div class="step"><span class="k">步驟 2</span><h3>結構體檢</h3><p>不用跑量子，先檢查資料長相：是不是二選一、關係強弱差多少、連線多不多。</p></div>
+    <div class="step"><span class="k">步驟 3</span><h3>小型實測</h3><p>在樣本上同時跑 RQAOA、標準 QAOA、貪婪法、禁忌搜尋，比較誰的答案好。</p></div>
+    <div class="step"><span class="k">步驟 4</span><h3>紅黃綠燈報告</h3><p>告訴他「適合／可以試／不建議」，附上原因和比較圖。</p></div>
+  </div>
+
+  <h3>體檢項目：都來自我們實測過的規則</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>檢查什麼</th><th>白話說明</th><th>適合的例子</th><th>不適合的例子</th></tr></thead>
+    <tbody>
+      <tr><td>是不是二選一</td><td>每個項目只有兩種選擇嗎？</td><td>噴漆：先紅或先藍</td><td>三色以上的分配</td></tr>
+      <tr><td>關係強弱差多少</td><td>最強的關係是一般關係的幾倍？差太多，RQAOA 會被少數強關係帶著走</td><td>噴漆：全部一樣（1 倍）</td><td>Wi-Fi 干擾：常差上千倍</td></tr>
+      <tr><td>連線多不多</td><td>每個項目平均跟幾個項目有關係</td><td>噴漆：最多 4 個</td><td>Wi-Fi：平均 13–18 個；稠密圖</td></tr>
+      <tr><td>限制能不能自動滿足</td><td>規則能不能直接寫進變數，不用另外扣分</td><td>噴漆：同款自動異色</td><td>「剛好選 K 個」這類硬限制</td></tr>
+      <tr><td>答案好壞取決於誰</td><td>是求解方法的問題，還是資料怎麼建模的問題</td><td>噴漆：模型清楚</td><td>點雲：建模錯了，誰都解不好</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="mock" aria-label="檢測報告示意">
+    <div class="verdict"><span class="chip c-acc">示意畫面</span><span class="big">黃燈：可以試，但先改資料</span></div>
+    <div class="checks">
+      <span>二選一</span><span class="note">每個項目兩種狀態</span><span class="chip c-ok">通過</span>
+      <span>關係強弱差距</span><span class="note">最強／一般 ≈ 1300 倍</span><span class="chip c-no">太大</span>
+      <span>平均連線數</span><span class="note">13 個</span><span class="chip c-warn">偏多</span>
+      <span>小型實測</span><span class="note">RQAOA 輸禁忌搜尋，贏標準 QAOA</span><span class="chip c-warn">普通</span>
+    </div>
+    <p class="note">建議：先把關係強度取對數或分級，降低差距後再測。</p>
+  </div>
+
+  <h3>為什麼值得做</h3>
+  <ul>
+    <li><b>省別人的時間</b>：很多團隊是「先決定用量子，再找資料」，最後才發現不適合。這個工具讓他們在投入前先檢查。</li>
+    <li><b>能和隊上 IQP 線接起來</b>：IQP 成員已經做了「資料適不適合用量子方法」的指引。兩者合起來，可以變成一個「量子方法適用性檢測平台」，一份資料同時看 IQP 和 RQAOA。</li>
+    <li><b>技術上做得到</b>：檢測和實測的程式我們已經有了（五輪實驗的 Python 程式），再加一個上傳介面即可，例如 Streamlit 或 Gradio。樣本控制在 60 個項目以內，一般電腦幾分鐘可以跑完。</li>
+  </ul>
+  <h3>要先講清楚的限制</h3>
+  <ul>
+    <li>小樣本不一定能代表整份資料；報告要提醒使用者用多段樣本再測。</li>
+    <li>燈號判斷的是「值不值得試 RQAOA」，不是「會不會有量子優勢」。</li>
+    <li>門檻（例如「差距幾倍算太大」）目前只來自五輪實驗，要用更多資料校正。</li>
+    <li>上傳的資料只用來計算，算完就刪除，需要在網站上寫明。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>五輪實測總表</h2>
+  <p>每一輪都用同一套規則：同一份資料、所有答案重新驗算、放入強的古典方法比較、參數在看到測試資料前就固定。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>日期</th><th>問題</th><th>規模</th><th>RQAOA 對專用／常用方法</th><th>RQAOA 對禁忌搜尋</th></tr></thead>
+    <tbody>
+      <tr><td class="num">11/07</td><td>圖分群（MaxCut），八類圖</td><td>208 例</td><td>找到最佳解 197 例；局部搜尋 206、SDP 207</td><td><span class="chip c-no">輸</span></td></tr>
+      <tr><td class="num">11/12</td><td>3D 點雲法向量方向校正</td><td>108 張圖</td><td>最佳解 105 例；瓶頸在建模，不在求解方法</td><td><span class="chip c-no">輸</span></td></tr>
+      <tr class="hl"><td class="num">11/12</td><td><b>汽車噴漆換色</b></td><td>40 個新例</td><td>對專用方法 RSG：32 勝 8 平 0 負</td><td><span class="chip c-warn">0 勝 25 平 15 負</span></td></tr>
+      <tr><td class="num">11/12</td><td>稠密圖、自旋玻璃、三正則圖</td><td>48 例</td><td>未勝 SDP</td><td><span class="chip c-no">輸</span></td></tr>
+      <tr><td class="num">11/14</td><td>三色版 RQAOA：圖著色</td><td>20 例</td><td>贏標準 QAOA 與 SDP 平均 20/20；對 SDP 最好 100 次 11 勝 3 平 6 負</td><td><span class="chip c-no">0 勝 3 平 17 負</span></td></tr>
+      <tr><td class="num">11/14</td><td>三色版 RQAOA：Wi-Fi 頻道規劃</td><td>20 例</td><td>48 台 AP 時 10 例全輸「每台選最空頻道」</td><td><span class="chip c-no">0 勝 1 平 19 負</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">平手多半是雙方都找到最佳解。點雲的 108 張圖來自 36 組點雲。Wi-Fi 原計畫的 96 台 AP 的 10 例因結論已清楚而未跑完。</p>
+</section>
+
+<section>
+  <h2>為什麼贏不了禁忌搜尋</h2>
+  <p>我們用的 RQAOA 是最淺的一層（p=1）。這個版本每一步只看得到一小塊鄰居，而且普通電腦就能很快算出它的結果。換句話說，如果它在同樣時間內穩定贏過禁忌搜尋，就等於發明了一個更好的古典演算法。目前全世界的研究也沒有這種結果。</p>
+  <p>要談真正的「量子優勢」，必須用更深、普通電腦模擬不了的版本，並在量子硬體上跑。這是我們現階段無法驗證的，報告中列為未來方向。</p>
+</section>
+
+<section id="fixes">
+  <h2>RQAOA 為什麼會輸？能怎麼補？（11/16 實測）</h2>
+  <p class="lead">我們在 16 個全新噴漆案例上（128 台車 10 例、256 台車 6 例）找輸的原因，並測了四種補救方法。參數沿用之前凍結的值，沒有針對這批案例調整。</p>
+
+  <h3>輸的原因：綁錯的決定會一路累積</h3>
+  <p>RQAOA 每一步把「最有把握的一對」綁死，綁了就不能改。我們在綁到 25%、50%、75%、100% 時，各用長時間禁忌搜尋檢查「剩下的問題最好還能做到幾次換色」，看損失從哪裡出現：</p>
+  <div class="tbl"><table>
+    <thead><tr><th>規模</th><th class="r">綁 25%</th><th class="r">綁 50%</th><th class="r">綁 75%</th><th class="r">全部綁完</th></tr></thead>
+    <tbody>
+      <tr><td>128 台車（比最佳多幾次換色）</td><td class="r">0.5</td><td class="r">1.0</td><td class="r">1.3</td><td class="r">1.3</td></tr>
+      <tr><td>256 台車</td><td class="r">0.7</td><td class="r">2.0</td><td class="r">3.5</td><td class="r">5.3</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>錯誤是一步一步累積的</b>：不是某一步特別糟，而是每綁一段就多損失一點。問題越大、要綁的步數越多，累積越多，這解釋了文獻看到的「規模越大越輸」。</li>
+    <li><b>越後面越沒把握</b>：256 台車時，前 1/4 步的關聯強度平均 0.37，最後 1/4 步只剩 0.33。把握變低，綁錯的機率就變高。</li>
+    <li><b>根本原因</b>：p=1 的量子線路每次只看得到每個變數附近一小圈的關係，看不到整體。這也是為什麼它贏得了只看鄰居的 RSG，卻贏不了會反覆試錯的禁忌搜尋。</li>
+  </ul>
+
+  <h3>四種補救方法的實測結果</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>方法</th><th>做法</th><th class="r">256 台車：比最佳多幾次</th><th>結果</th></tr></thead>
+    <tbody>
+      <tr><td>原始 RQAOA</td><td>每步綁最有把握的一對</td><td class="r">5.3</td><td>6 例中 4 勝 1 平 1 負對 RSG</td></tr>
+      <tr><td>＋局部修補</td><td>最後再逐一試翻每個變數</td><td class="r">5.0</td><td><span class="chip c-no">幾乎沒用</span>一次翻一個解不開整串綁錯</td></tr>
+      <tr class="hl"><td><b>多路徑 RQAOA</b></td><td>跑 8 次，每步從前 3 名裡隨機選一對來綁，取最好的（QIRO 回溯的簡化版）</td><td class="r">1.3</td><td><span class="chip c-ok">大幅改善</span>6 例全勝 RSG、全勝原始 RQAOA；換色比 RSG 少 19%</td></tr>
+      <tr><td>量子關聯＋隨機取整（QRR）</td><td>一次算全部關聯，像 SDP 一樣隨機切</td><td class="r">13.5</td><td><span class="chip c-no">比 RSG 還差</span>沒有遞迴，資訊不夠</td></tr>
+      <tr><td>RQAOA 當禁忌搜尋的起點</td><td>先 RQAOA，剩下時間交給禁忌搜尋</td><td class="r">0.1–0.6</td><td><span class="chip c-no">比直接跑禁忌搜尋差</span>RQAOA 的答案卡在很深的坑裡，禁忌搜尋反而爬不出來</td></tr>
+      <tr><td>禁忌搜尋（同總時間）</td><td>純古典</td><td class="r">0.0–0.1</td><td>幾乎每例都找到目前最佳</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">128 台車時趨勢相同：多路徑 RQAOA 10 例中 9 例找到最佳，原始 RQAOA 5 例。程式與資料：<code>research/rqaoa_opportunity/fixes.py</code>、<code>results/fixes.csv</code>。</p>
+
+  <h3>文獻上的其他補法</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>方法</th><th>怎麼補</th><th>效果（文獻）</th></tr></thead>
+    <tbody>
+      <tr><td>XQAOA（Vijendran 等 2025）</td><td>每個 qubit 給獨立參數、混合項加 Y 方向，讓淺層線路表達力更強</td><td>噴漆到 4,096 台都贏 RSG，比 RQAOA 好</td></tr>
+      <tr><td>QIRO 回溯（Finžgar 等 2024）</td><td>發現綁錯就退回前幾步重來，不加深線路</td><td>與模擬退火、貪婪法相當</td></tr>
+      <tr><td>RL-RQAOA（Patel 等 2022）</td><td>用強化學習決定每步綁哪一對</td><td>在原始 RQAOA 表現差的案例上嚴格較好</td></tr>
+      <tr><td>加深線路（p ≥ 2）</td><td>每步看到更大範圍，把握更準</td><td>QAOA p=17 有明顯進步（Goh 等 2026），但模擬成本快速上升</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>那有沒有可能比古典好？</h3>
+  <div class="callout">誠實的答案：<b>在 p=1、電腦模擬的條件下，不可能真正贏古典。</b>原因是 p=1 的關聯本身就能用普通電腦快速算出，所以任何 p=1 的改良，本質上都是「量子啟發的古典演算法」。Goh 等（2026）就做了這件事：把 p=1 的想法改寫成純古典的 MF-AOA，結果比所有量子方法都好。</div>
+  <ul>
+    <li><b>可以主張的</b>：多路徑 RQAOA 大幅修好了 RQAOA 的累積錯誤，在 256 台車上贏 RSG 19%，而且找到了輸的原因。這是可驗證、可展示的成果。</li>
+    <li><b>唯一可能贏古典的路</b>：加深線路到古典電腦算不動的程度（p 夠大、變數夠多），並在量子真機上跑關聯，再搭配多路徑或回溯來壓住累積錯誤。這條路目前沒有人證明會贏，我們也無法驗證，只能寫成未來方向。</li>
+    <li><b>要挑對題目</b>：在噴漆這種小而稀疏的題目上，禁忌搜尋 1 秒內就找到最佳，留給量子的空間很小。真正要比，必須找禁忌搜尋也會卡住的大型、崎嶇的題目。</li>
+  </ul>
+
+  <h3>第二輪：想「品質和速度都要」的兩種做法（11/16 實測）</h3>
+  <p>同一批 16 個案例，兩種新做法都和「同樣總時間的禁忌搜尋」比。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>做法</th><th>怎麼做</th><th class="r">256 台車：比最佳多幾次</th><th class="r">時間</th><th>對禁忌搜尋（勝/平/負）</th></tr></thead>
+    <tbody>
+      <tr><td>原始 RQAOA</td><td>—</td><td class="r">5.3</td><td class="r">1.4 秒</td><td>—</td></tr>
+      <tr><td>只在沒把握處回溯</td><td>先走一條路，再從「第 1、2 名最接近」的 7 個步驟改走第 2 名，前段共用</td><td class="r">1.7</td><td class="r">10 秒</td><td>0 / 2 / 4</td></tr>
+      <tr class="hl"><td>半路交棒（綁 25% 後交給禁忌搜尋）</td><td>RQAOA 先縮小問題 25%，剩下交給禁忌搜尋</td><td class="r">0.7–0.8</td><td class="r">1.4–2.4 秒</td><td>最好的一組 1 / 3 / 2，另一組 0 / 4 / 2</td></tr>
+      <tr><td>半路交棒（綁 50%）</td><td>綁一半再交棒</td><td class="r">2.0</td><td class="r">1.7–2.7 秒</td><td>0 / 1 / 5</td></tr>
+      <tr><td>禁忌搜尋（同時間）</td><td>純古典</td><td class="r">0.0–0.2</td><td class="r">同上</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>回溯沒有變快</b>：沒把握的步驟不只出現在後段，前段也有，所以共用前段省不了多少時間（10 秒，跟跑 8 次差不多）。品質和跑 8 次相近，兩者都 16 例全勝 RSG。</li>
+    <li><b>半路交棒最接近禁忌搜尋</b>，速度也快，但整體仍然略輸。綁越多輸越多：RQAOA 綁掉的每一對，都可能讓禁忌搜尋失去找到最佳解的機會。</li>
+    <li>128 台車時結論相同：回溯 0 勝 8 平 2 負、交棒 0 勝 6–7 平 3–4 負。程式：<code>research/rqaoa_opportunity/adaptive.py</code>，資料：<code>results/adaptive.csv</code>。</li>
+  </ul>
+  <div class="callout"><b>老實說：</b>這兩輪實測證實了一件事——在 p=1、電腦模擬、噴漆這類小而稀疏的題目上，RQAOA 怎麼改都只能「越來越接近」禁忌搜尋，沒有贏。它能穩定贏的只有 RSG 這類只看鄰居的貪婪法。這不是調參數能解決的，是 p=1 只看得到鄰居這個根本限制。報告應該把這件事當成發現誠實寫出來，而不是包裝成優勢。</div>
+</section>
+
+<section id="story">
+  <h2>給評審的故事稿</h2>
+  <p class="note">以下人物與工廠是<b>情境示意</b>（虛構）；成果數字來自我們的實測，產業與文獻說法都附在下方「來源查核」。</p>
+
+  <div class="panel">
+    <h3>第一幕｜早上六點的噴漆線</h3>
+    <p>某汽車廠的排程員小林，每天早上拿到一張生產序列：今天 1,200 台車身，順序是前面組裝線定好的，<b>一台都不能動</b>。</p>
+    <p>他能決定的只有一件事：每台車噴什麼顏色。每換一次色，噴槍就要停下來用溶劑沖洗管線，油漆倒掉、產線停頓、廢氣多排一點。</p>
+    <p>麻煩在於：第 3 台和第 870 台是同一張訂單，<b>規定要一紅一藍</b>。第 3 台選了紅，第 870 台就只能藍，接著影響第 869、871 台要不要換色，再一路牽動其他訂單。現在的排程規則是從頭到尾一台一台看，「能不換就不換」，看起來合理，卻<b>看不到這種隔了幾百台的牽連</b>。</p>
+  </div>
+
+  <div class="panel">
+    <h3>第二幕｜換一種問法</h3>
+    <p>RQAOA 不一台一台決定，而是先問：<b>「這兩張訂單，應該同步還是相反？」</b>用量子線路估計所有訂單兩兩之間的關聯，挑出最有把握的一對綁在一起，問題就少一個變數；再找下一對。剩下少數幾張訂單時，直接全部試一遍，再把答案一路還原回去。</p>
+    <p>這種「先抓全局關係、再逐步收斂」的做法，正好對付傳統規則看不到的遠距離牽連。</p>
+  </div>
+
+  <div class="panel">
+    <h3>第三幕｜結果</h3>
+    <ul>
+      <li><b>40 個從沒看過的新序列，對上這個問題的專用方法：32 勝 8 平 0 負</b>，換色平均少 11–14%。</li>
+      <li><b>參數學一次就能一直用</b>：只用 8 個練習案例學參數，凍結後直接套到新序列，每次計算從 9.6 秒降到 0.11 秒。工廠每天都有新序列，這代表它跟得上每天的排程節奏。</li>
+      <li><b>放大到真實規模也站得住，但優勢會變小</b>：Vijendran 等（2025）在 128 到 4,096 台車上測過同樣的 RQAOA，到 1,024 台都還贏 RSG，2,048 台起才被追上。所以我們主張的是「中小批次排程」，不說大規模也一樣好。</li>
+    </ul>
+    <p class="note">這不是我們憑空挑的題目：Volkswagen 研究人員 2021 年發表了用 QAOA 解這個噴漆問題的論文（Streif 等），同年另一篇（Yarkoni 等）用的是<b>德國 Wolfsburg 工廠的真實資料</b>。車廠自己在乎這件事。</p>
+  </div>
+
+  <div class="panel">
+    <h3>第四幕｜不只汽車</h3>
+    <p>只要「順序固定、每張訂單兩件、兩件要不同處理、切換有成本」，就是同一題：3D 列印農場的成對零件（一黑一白）、雙色塗裝、兩種配方輪流的產線。<b>同一套程式，換一份資料就能用。</b></p>
+  </div>
+
+  <div class="panel">
+    <h3>第五幕｜把踩過的坑做成一把尺</h3>
+    <p>一位研究生聽說量子演算法很厲害，把自己的物流資料拿去跑 RQAOA，花了三個月，才發現他的資料根本不適合。</p>
+    <p>我們也走過這段路：五輪實驗，試了 Wi-Fi 頻道規劃、三色分群、各種圖，才搞清楚 RQAOA 適合什麼、不適合什麼。所以我們把這些規則做成<b>適用性檢測網站</b>：丟 50 筆資料進來，幾分鐘拿到紅黃綠燈和理由。<b>我們花五輪踩過的坑，別人不必再踩。</b></p>
+  </div>
+
+  <p class="callout"><b>收尾金句：</b>量子計算不缺「理論上很快」的承諾，缺的是「知道該用在哪」。我們找到一個能用、能驗證的落點，也做了一把尺，讓別人量自己的問題。</p>
+
+  <h3>評審可能會問，怎麼答</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>評審問</th><th>建議回答</th></tr></thead>
+    <tbody>
+      <tr><td>有比最好的古典方法好嗎？</td><td>還沒有。禁忌搜尋在大案例仍較好；文獻上也有更新的方法（XQAOA、古典的 MF-AOA）更強。我們贏的是這個問題常用的專用方法 RSG，而且參數可重複使用；我們的貢獻是找出 RQAOA 的落點，並把判斷規則做成工具。</td></tr>
+      <tr><td>這不是別人做過了嗎？</td><td>是，噴漆用 RQAOA 已有 Mooney 等（2025）和 Vijendran 等（2025）。我們是獨立重現，並把「參數學一次重複用」測到 128 台車；我們真正新的部分是五輪跨題目比較，以及把結論做成檢測網站。</td></tr>
+      <tr><td>有上量子真機嗎？</td><td>沒有，全部是電腦模擬。我們用的淺層版本可以被古典電腦精確模擬，所以結果是可驗證的；換到量子硬體時流程不用改。</td></tr>
+      <tr><td>資料是真的嗎？</td><td>是依文獻標準方法產生的合成序列。下一步是拿真實產線或列印農場的排程資料驗證。</td></tr>
+      <tr><td>顏色超過兩種呢？</td><td>我們測過三色版，沒有比較好，所以目前只主張兩色場景。這也是檢測網站會給紅燈的情況。</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>不要說：</b>「量子比古典快」、「已在工廠導入」、「節省 X 萬元」（我們沒有成本資料）、「大規模也一樣好」。故事可以生動，但數字只用實測的。</p>
+</section>
+
+<section id="sources">
+  <h2>來源查核</h2>
+  <p>故事和報告裡的每一個說法，對應的依據如下。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>說法</th><th>依據</th><th>狀態</th></tr></thead>
+    <tbody>
+      <tr><td>噴漆換色問題是真實存在、而且很難（NP 完全、APX 困難）</td><td>Epping 等 2004（Discrete Applied Math. 136）；Bonsma 等 2006 證明二元版也是 APX 困難</td><td><span class="chip c-ok">有論文</span></td></tr>
+      <tr><td>車廠研究過這個問題，並用了量子方法</td><td>Streif 等 2021（作者含 Volkswagen Data:Lab）；Yarkoni 等 2021（Volkswagen，用 Wolfsburg 工廠真實資料，IEEE QCE21）</td><td><span class="chip c-ok">有論文</span></td></tr>
+      <tr><td>換色要用溶劑沖洗，浪費油漆、產生揮發性有機物</td><td>產業報導：GM 工廠案例沖洗溶劑揮發量 460 噸／年（PCI 雜誌）；換色溶劑用量常是管線油漆量的 2–3 倍（Products Finishing）</td><td><span class="chip c-ok">有產業資料</span></td></tr>
+      <tr><td>噴漆順序由前後製程決定，不能隨意改</td><td>產業文章指出下游組裝需要特定順序，佇列不能自由重排</td><td><span class="chip c-warn">廠商文章，非論文</span></td></tr>
+      <tr><td>RSG 是這個問題的專用古典方法</td><td>Hančl 等 2023（COCOON 2023）提出 Recursive Star Greedy</td><td><span class="chip c-ok">有論文</span></td></tr>
+      <tr><td>RQAOA 贏 RSG</td><td>我們的實測（128 台車）；Vijendran 等 2025（Phys. Rev. Applied 接受）：到 1,024 台都贏，2,048 台起輸</td><td><span class="chip c-ok">實測＋文獻一致</span></td></tr>
+      <tr><td>RQAOA 參數可以轉移重複使用</td><td>我們的實測；Mooney 等 2025 也報告參數轉移後品質沒有明顯下降</td><td><span class="chip c-ok">實測＋文獻一致</span></td></tr>
+      <tr><td>多色 3D 列印換線材會沖料浪費，深色換淺色沖更多</td><td>Bambu Lab 官方 Wiki（切片軟體依顏色組合自動算沖料量）</td><td><span class="chip c-ok">官方文件</span></td></tr>
+      <tr><td>列印農場有「成對、必須異色、順序固定」的需求</td><td>沒有找到來源</td><td><span class="chip c-no">我們的推論</span></td></tr>
+      <tr><td>每換一次色要花多少錢</td><td>沒有找到獨立、近期的數字，只有廠商宣稱</td><td><span class="chip c-no">不要寫金額</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>查核後修正了哪些說法</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>原本的說法</th><th>查到什麼</th><th>改成</th></tr></thead>
+    <tbody>
+      <tr><td>「日產 1,200 台的線，每天約少 25 次換色」</td><td>Vijendran 等（2025）在 128 到 4,096 台車上測 RQAOA：到 1,024 台仍贏 RSG，但優勢越來越小，2,048 台起被追上。我們只測到 128 台，比例不能直接放大。</td><td>刪除推算，改成「中小批次排程有優勢，規模變大優勢會縮小」</td></tr>
+      <tr><td>「原作者專用方法」</td><td>RSG 是 Hančl 等（2023）提出的，不是噴漆問題的原作者 Epping。</td><td>「專用方法 RSG（Hančl 等 2023）」</td></tr>
+      <tr><td>暗示這是新題目</td><td>噴漆用 RQAOA 已有 Mooney 等（2025，含參數轉移）與 Vijendran 等（2025）。</td><td>定位為獨立重現；新的是五輪跨題目比較與檢測網站</td></tr>
+      <tr><td>暗示 RQAOA 是最好的方法</td><td>更強的方法已有量子的 XQAOA 與古典的 MF-AOA（Goh 等 2026，宣稱勝過所有已知方法）。</td><td>只說「贏 RSG」，Q&amp;A 主動承認有更強方法</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><b>新增可用證據：</b>Yarkoni 等（2021，Volkswagen）用德國 Wolfsburg 工廠的真實資料跑量子方法，可以當故事裡「車廠在乎這件事」的證據。</p>
+</section>
+
+<section>
+  <h2>建議的最終報告寫法（11/18 繳交）</h2>
+  <ol>
+    <li><b>問題</b>：RQAOA 適合用在哪裡？</li>
+    <li><b>RQAOA 白話原理</b>：「每次綁定最有把握的一對」。</li>
+    <li><b>應用一：汽車噴漆換色</b>：題目、為什麼適合、40 個新例的結果、參數重複使用。</li>
+    <li><b>應用二：RQAOA 適用性檢測網站</b>：流程、體檢項目、示意畫面，可與 IQP 線合併成平台。</li>
+    <li><b>五輪實測與失敗原因</b>：哪些題目不適合、為什麼。</li>
+    <li><b>結論與未來</b>：更深層數、多色噴漆、真機測試、網站上線。</li>
+  </ol>
+  <div class="two">
+    <div>
+      <h3>可以寫</h3>
+      <ul>
+        <li>RQAOA 在噴漆上勝過專用方法與標準 QAOA</li>
+        <li>參數學一次可重複用，大幅省時間</li>
+        <li>整理出 RQAOA 的適用條件，有五輪數據支撐，並能做成檢測工具</li>
+      </ul>
+    </div>
+    <div>
+      <h3>不要寫</h3>
+      <ul>
+        <li>「量子優勢」「量子加速」</li>
+        <li>只放贏專用方法的比較，卻不放禁忌搜尋</li>
+        <li>「首創」：噴漆用 RQAOA 已有 Mooney 等（2025）的研究</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="limits">
+  <h2>限制</h2>
+  <ul>
+    <li>全部是 p=1 的電腦精確模擬，沒有真機、沒有量測次數造成的誤差，也沒有硬體雜訊。</li>
+    <li>噴漆資料是合成的「固定順序、兩種顏色」版本，不含真實工廠的多色、暫存區與重排。</li>
+    <li>超過 20 個變數的案例只知道目前找到的最好答案，沒有證明是真正最佳。</li>
+    <li>三色版是自行實作，選關係與比較用的取整方法和原論文不同，不算完整重現。</li>
+    <li>Wi-Fi 干擾是依室內訊號衰減公式合成的，不是實測場域資料。</li>
+    <li>檢測網站目前是設計，尚未實作。</li>
+  </ul>
+</section>
+
+<section id="refs">
+  <h2>參考文獻</h2>
+  <ol class="refs">
+    <li>Epping, Hochstättler, Oertel. Complexity Results on a Paint Shop Problem. Discrete Applied Mathematics (2004)（噴漆問題的原始定義）</li>
+    <li>Bravyi 等. Obstacles to Variational Quantum Optimization from Symmetry Protection（RQAOA 原始論文，2019）. <a href="https://arxiv.org/abs/1910.08980">arXiv:1910.08980</a></li>
+    <li>Bravyi, Kliesch, Koenig, Tang. Hybrid Quantum-Classical Algorithms for Approximate Graph Coloring（三色 RQAOA，2022）. <a href="https://arxiv.org/abs/2011.13420">arXiv:2011.13420</a></li>
+    <li>Mooney 等. Optimisation-Free Recursive QAOA for the Binary Paint Shop Problem (2025). <a href="https://arxiv.org/abs/2507.10908">arXiv:2507.10908</a></li>
+    <li>Streif 等. Beating Classical Heuristics for the Binary Paint Shop Problem with QAOA (2021). <a href="https://arxiv.org/abs/2011.03403">arXiv:2011.03403</a></li>
+    <li>Chen 等. Recursive QAOA for Interference-Aware Resource Allocation in Wireless Networks (2026). <a href="https://arxiv.org/abs/2602.07483">arXiv:2602.07483</a></li>
+    <li>Finžgar 等. Quantum-Informed Recursive Optimization Algorithms (2023). <a href="https://arxiv.org/abs/2308.13607">arXiv:2308.13607</a></li>
+    <li>Herrman 等. Impact of Graph Structures for QAOA on MaxCut (2021). <a href="https://arxiv.org/abs/2102.05997">arXiv:2102.05997</a></li>
+    <li>Yarkoni 等. Multi-car Paint Shop Optimization with Quantum Annealing（Volkswagen，IEEE QCE21）. <a href="https://arxiv.org/abs/2109.07876">arXiv:2109.07876</a></li>
+    <li>Vijendran, Koh, Lam, Assad. Classical and Quantum Heuristics for the Binary Paint Shop Problem (2025). <a href="https://arxiv.org/abs/2509.15294">arXiv:2509.15294</a></li>
+    <li>Goh 等. Beyond Quantum Advantage: Improved Classical Algorithms for the Binary Paint Shop Problem (2026). <a href="https://arxiv.org/abs/2604.00607">arXiv:2604.00607</a></li>
+    <li>Hančl 等. Improved Bounds for the Binary Paint Shop Problem. COCOON 2023（RSG 出處）</li>
+    <li>Finžgar 等. Quantum-Informed Recursive Optimization Algorithms. PRX Quantum 5, 020327 (2024)（QIRO 與回溯）</li>
+    <li>Patel 等. Reinforcement Learning Assisted Recursive QAOA (2022). <a href="https://arxiv.org/abs/2207.06294">arXiv:2207.06294</a></li>
+    <li>Dupont, Sundar. Extending Relax-and-Round Combinatorial Optimization Solvers with Quantum Correlations. Phys. Rev. A 109, 012429 (2024). <a href="https://arxiv.org/abs/2307.05821">arXiv:2307.05821</a></li>
+    <li>產業資料：<a href="https://www.pcimag.com/articles/95005-a-closed-loop-recycling-program-for-purge-solvents">PCI：沖洗溶劑回收案例</a>；<a href="https://www.automotivemanufacturingsolutions.com/voice/automotive-paintshop-colour-changes-reducing-waste-and-cost/41864.article">Automotive Manufacturing Solutions：噴漆換色的浪費與成本</a>；<a href="https://wiki.bambulab.com/en/software/bambu-studio/reduce-wasting-during-filament-change">Bambu Lab Wiki：減少換料浪費</a></li>
+  </ol>
+  <p class="note">本機實驗資料：<code>量子競賽/research/rqaoa_opportunity/</code>（噴漆等）、<code>research/rqaoa_maxkcut/</code>（三色與 Wi-Fi）、<code>research/normal_orientation/</code>（點雲）、<code>research/q9_results/</code>（圖分群）。</p>
+</section>
+
+</div>

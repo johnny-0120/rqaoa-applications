@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/jsnln/WNNC/175b116580c9c49e8f8d421fb17eee10fcddc198/README.md",
+    "local": "./research\\normal_orientation\\vendor_inspection\\jsnln_WNNC_README.md",
+    "sha256": "435db33ed829997b642d1285415fcec99e93f73cf1a1711ce402274f3f00bda5",
+    "pinned_content_verified": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/jsnln/WNNC/175b116580c9c49e8f8d421fb17eee10fcddc198/main_wnnc.py",
+    "local": "./research\\normal_orientation\\vendor_inspection\\jsnln_WNNC_main_wnnc.py",
+    "sha256": "bb6825b3d15a60c12e0da8d531cf71a131ef6832edc529c54e797d2c53512be1",
+    "pinned_content_verified": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/jsnln/WNNC/175b116580c9c49e8f8d421fb17eee10fcddc198/ext/wn_treecode/wn_treecode_cpu/wn_treecode_cpu_kernels.cpp",
+    "local": "./research\\normal_orientation\\vendor_inspection\\wnnc_kernels.cpp",
+    "sha256": "6d2ea73b43e39215b2d3f9550331a2738e1e784a6cb7ef68a17defeaf7cab52d",
+    "pinned_content_verified": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/galmetzer/dipole-normal-prop/72ba66b6a54858ebdb34de44afaefaeabfeee81b/field_utils.py",
+    "local": "./research\\normal_orientation\\vendor_inspection\\galmetzer_dipole-normal-prop_field_utils.py",
+    "sha256": "f0c6b4a686e5fa723c0cef8b2b14170c58ad770fbdc28f704201b89b3eff61ba",
+    "pinned_content_verified": true
+  }
+]

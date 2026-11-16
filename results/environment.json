@@ -1,0 +1,31 @@
+{
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.2",
+    "matplotlib": "3.11.2"
+  },
+  "cases": 98,
+  "total_seconds": 25.06844909999927,
+  "parameters": {
+    "p": 1,
+    "n_cutoff": 4,
+    "graph_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "sample_batches": 20,
+    "shots_per_batch": 256,
+    "local_starts": 32,
+    "gamma_grid_min": 129,
+    "gamma_peaks_refined": 4,
+    "tie_tolerance": 1e-09
+  }
+}

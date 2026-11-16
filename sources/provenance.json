@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-07",
+  "graph_built_at": "2026-11-06T15:07:29.839983+00:00",
+  "project_graph_hash_matches": false,
+  "resolution": "Read current original project note and meeting Markdown; no vault write or graph rebuild.",
+  "sources": [
+    {
+      "path": "./Team_9.pptx",
+      "sha256": "74636dc77cc092897ba24f48acb18fd928fbd0449467b78c01b46429b5ae8934"
+    },
+    {
+      "path": "./225033.jpg",
+      "sha256": "1cfcc9eb9a27279fa23bc24f2853dd1fc1468b9d1e499b82ed7d5c86601f8f01"
+    },
+    {
+      "path": "<Obsidian 筆記庫>\\10 專案\\全國智慧運算與量子資訊創新應用競賽.md",
+      "sha256": "f1be036e944ed6e0910675840d48c32f3a4c61b3bb3e2f2fbca04f888aebce62"
+    },
+    {
+      "path": "<Google 雲端硬碟>\\量子資訊應用競賽\\2026-10-30_量子競賽_從問題出發與驗證路線_會議紀錄.md",
+      "sha256": "6c22968f135db4366a41a29e4fdf77500be8be35d74ccfcaf286b4a56b8ced3d"
+    },
+    {
+      "path": "<Google 雲端硬碟>\\量子資訊應用競賽\\2026-11-01_量子競賽_零售推薦與購物籃生成_會議紀錄.md",
+      "sha256": "75611d97ab3746a66a019e681a9260a69ec72a07142e6f3c485bbf19bcea429a"
+    },
+    {
+      "path": "<Google 雲端硬碟>\\量子資訊應用競賽\\11-2報告.md",
+      "sha256": "4cd22c58a65d4bbfab2574ac832bd99f414c570d8d8874f7ca53e91f97a5138e"
+    },
+    {
+      "path": "<Google 雲端硬碟>\\量子資訊應用競賽\\2026-11-05_量子競賽_實驗檢討與QAOA分線_會議紀錄.md",
+      "sha256": "8d2ab3be68556633ebae57b07bc557b6a1eaa9f6688581dc770a77e6b061f528"
+    }
+  ],
+  "web_sources": [
+    "https://arxiv.org/abs/1910.08980",
+    "https://arxiv.org/abs/2012.03421",
+    "https://arxiv.org/abs/2408.13207",
+    "https://github.com/vijeycreative/Modified_RQAOA",
+    "https://openqaoa.entropicalabs.com/workflows/recursive-qaoa/"
+  ]
+}

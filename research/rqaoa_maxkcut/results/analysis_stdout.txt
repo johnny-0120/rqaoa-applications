@@ -1,0 +1,1212 @@
+{
+ "planted": {
+  "n=30,4": {
+   "instances": 5,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 0.8,
+     "mean_gap": 0.8,
+     "hits": 1,
+     "median_time": 0.0006
+    },
+    "DSatur_greedy": {
+     "mean": 0.8,
+     "mean_gap": 0.8,
+     "hits": 1,
+     "median_time": 0.0006
+    },
+    "LCCS_best_response": {
+     "mean": 3.4,
+     "mean_gap": 3.4,
+     "hits": 0,
+     "median_time": 0.0004
+    },
+    "QAOA1_expected": {
+     "mean": 10.6217,
+     "mean_gap": 10.6217,
+     "hits": 0,
+     "median_time": 0.6832
+    },
+    "RQAOA1": {
+     "mean": 1.4,
+     "mean_gap": 1.4,
+     "hits": 0,
+     "median_time": 14.1316
+    },
+    "RQAOA1+descent": {
+     "mean": 1.4,
+     "mean_gap": 1.4,
+     "hits": 0,
+     "median_time": 14.1316
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0684
+    },
+    "SDP_FJ_best100": {
+     "mean": 3.0,
+     "mean_gap": 3.0,
+     "hits": 0,
+     "median_time": 0.0529
+    },
+    "SDP_FJ_mean": {
+     "mean": 9.778,
+     "mean_gap": 9.778,
+     "hits": 0,
+     "median_time": 0.0529
+    },
+    "SDP_lowerbound": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0529
+    },
+    "best_known": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 14.1316
+    },
+    "tabu_1pctCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0008
+    },
+    "tabu_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0009
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     4,
+     1,
+     0
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     5,
+     0
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     4,
+     1,
+     0
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     0,
+     5,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ]
+   }
+  },
+  "n=30,6": {
+   "instances": 5,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 3.4,
+     "mean_gap": 3.4,
+     "hits": 3,
+     "median_time": 0.0004
+    },
+    "DSatur_greedy": {
+     "mean": 4.6,
+     "mean_gap": 4.6,
+     "hits": 3,
+     "median_time": 0.0004
+    },
+    "LCCS_best_response": {
+     "mean": 8.4,
+     "mean_gap": 8.4,
+     "hits": 0,
+     "median_time": 0.0002
+    },
+    "QAOA1_expected": {
+     "mean": 18.8202,
+     "mean_gap": 18.8202,
+     "hits": 0,
+     "median_time": 0.4711
+    },
+    "RQAOA1": {
+     "mean": 1.4,
+     "mean_gap": 1.4,
+     "hits": 3,
+     "median_time": 11.5818
+    },
+    "RQAOA1+descent": {
+     "mean": 0.8,
+     "mean_gap": 0.8,
+     "hits": 4,
+     "median_time": 11.5818
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0446
+    },
+    "SDP_FJ_best100": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0331
+    },
+    "SDP_FJ_mean": {
+     "mean": 14.88,
+     "mean_gap": 14.88,
+     "hits": 0,
+     "median_time": 0.0331
+    },
+    "SDP_lowerbound": {
+     "mean": -0.0,
+     "mean_gap": -0.0,
+     "hits": 3,
+     "median_time": 0.0331
+    },
+    "best_known": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 11.5818
+    },
+    "tabu_1pctCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0026
+    },
+    "tabu_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0033
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     2,
+     2,
+     1
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     2,
+     2,
+     1
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     4,
+     1
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     3,
+     2
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     0,
+     3,
+     2
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     3,
+     2
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     3,
+     2
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     3,
+     2
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     2,
+     3,
+     0
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     2,
+     3,
+     0
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     1,
+     4,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     4,
+     1
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     0,
+     4,
+     1
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     4,
+     1
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     4,
+     1
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     4,
+     1
+    ]
+   }
+  },
+  "n=60,4": {
+   "instances": 5,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 0.8,
+     "mean_gap": 0.8,
+     "hits": 2,
+     "median_time": 0.0007
+    },
+    "DSatur_greedy": {
+     "mean": 1.0,
+     "mean_gap": 1.0,
+     "hits": 2,
+     "median_time": 0.0007
+    },
+    "LCCS_best_response": {
+     "mean": 4.6,
+     "mean_gap": 4.6,
+     "hits": 0,
+     "median_time": 0.0004
+    },
+    "QAOA1_expected": {
+     "mean": 20.5226,
+     "mean_gap": 20.5226,
+     "hits": 0,
+     "median_time": 0.6961
+    },
+    "RQAOA1": {
+     "mean": 3.0,
+     "mean_gap": 3.0,
+     "hits": 0,
+     "median_time": 31.7766
+    },
+    "RQAOA1+descent": {
+     "mean": 2.4,
+     "mean_gap": 2.4,
+     "hits": 0,
+     "median_time": 31.7766
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 0.8,
+     "mean_gap": 0.8,
+     "hits": 1,
+     "median_time": 0.1448
+    },
+    "SDP_FJ_best100": {
+     "mean": 9.4,
+     "mean_gap": 9.4,
+     "hits": 0,
+     "median_time": 0.1133
+    },
+    "SDP_FJ_mean": {
+     "mean": 19.836,
+     "mean_gap": 19.836,
+     "hits": 0,
+     "median_time": 0.1133
+    },
+    "SDP_lowerbound": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.1133
+    },
+    "best_known": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 31.7766
+    },
+    "tabu_1pctCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0024
+    },
+    "tabu_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0036
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     0,
+     1,
+     4
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     0,
+     1,
+     4
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     3,
+     2,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     1,
+     4
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ]
+   }
+  },
+  "n=60,6": {
+   "instances": 5,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 7.0,
+     "mean_gap": 7.0,
+     "hits": 1,
+     "median_time": 0.0007
+    },
+    "DSatur_greedy": {
+     "mean": 9.4,
+     "mean_gap": 9.4,
+     "hits": 0,
+     "median_time": 0.0007
+    },
+    "LCCS_best_response": {
+     "mean": 13.6,
+     "mean_gap": 13.6,
+     "hits": 0,
+     "median_time": 0.0003
+    },
+    "QAOA1_expected": {
+     "mean": 36.526,
+     "mean_gap": 36.526,
+     "hits": 0,
+     "median_time": 0.5786
+    },
+    "RQAOA1": {
+     "mean": 11.4,
+     "mean_gap": 11.4,
+     "hits": 0,
+     "median_time": 29.9961
+    },
+    "RQAOA1+descent": {
+     "mean": 10.2,
+     "mean_gap": 10.2,
+     "hits": 0,
+     "median_time": 29.9961
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 5.5921
+    },
+    "SDP_FJ_best100": {
+     "mean": 2.0,
+     "mean_gap": 2.0,
+     "hits": 4,
+     "median_time": 5.5706
+    },
+    "SDP_FJ_mean": {
+     "mean": 29.484,
+     "mean_gap": 29.484,
+     "hits": 0,
+     "median_time": 5.5706
+    },
+    "SDP_lowerbound": {
+     "mean": 0.0003,
+     "mean_gap": 0.0003,
+     "hits": 3,
+     "median_time": 5.5706
+    },
+    "best_known": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 29.9961
+    },
+    "tabu_1pctCPU": {
+     "mean": 0.2667,
+     "mean_gap": 0.2667,
+     "hits": 4,
+     "median_time": 0.0559
+    },
+    "tabu_sameCPU": {
+     "mean": 0.0,
+     "mean_gap": 0.0,
+     "hits": 5,
+     "median_time": 0.0538
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     1,
+     0,
+     4
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     1,
+     0,
+     4
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     2,
+     3
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     1,
+     0,
+     4
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     1,
+     0,
+     4
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     1,
+     1,
+     3
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     3,
+     2,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     1,
+     0,
+     4
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     5,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     0,
+     5
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     0,
+     5
+    ]
+   }
+  }
+ },
+ "wifi": {
+  "n=24,wifi": {
+   "instances": 10,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 3.9584,
+     "mean_gap": 0.9247,
+     "hits": 0,
+     "median_time": 0.0004
+    },
+    "DSatur_greedy": {
+     "mean": 4.5716,
+     "mean_gap": 1.5379,
+     "hits": 0,
+     "median_time": 0.0004
+    },
+    "LCCS_best_response": {
+     "mean": 4.1149,
+     "mean_gap": 1.0813,
+     "hits": 0,
+     "median_time": 0.0003
+    },
+    "QAOA1_expected": {
+     "mean": 25.0362,
+     "mean_gap": 22.0025,
+     "hits": 0,
+     "median_time": 1.0432
+    },
+    "RQAOA1": {
+     "mean": 11.6139,
+     "mean_gap": 8.5802,
+     "hits": 1,
+     "median_time": 14.9922
+    },
+    "RQAOA1+descent": {
+     "mean": 3.6631,
+     "mean_gap": 0.6294,
+     "hits": 1,
+     "median_time": 14.9922
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 3.0337,
+     "mean_gap": 0.0,
+     "hits": 10,
+     "median_time": 0.677
+    },
+    "SDP_FJ_best100": {
+     "mean": 3.5028,
+     "mean_gap": 0.4692,
+     "hits": 0,
+     "median_time": 0.6549
+    },
+    "SDP_FJ_mean": {
+     "mean": 26.8918,
+     "mean_gap": 23.8581,
+     "hits": 0,
+     "median_time": 0.6549
+    },
+    "SDP_lowerbound": {
+     "mean": 2.8165,
+     "mean_gap": -0.2172,
+     "hits": 0,
+     "median_time": 0.6549
+    },
+    "best_known": {
+     "mean": 3.0337,
+     "mean_gap": 0.0,
+     "hits": 10,
+     "median_time": 20.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 3.0337,
+     "mean_gap": 0.0,
+     "hits": 10,
+     "median_time": 14.9922
+    },
+    "tabu_1pctCPU": {
+     "mean": 3.0745,
+     "mean_gap": 0.0408,
+     "hits": 3,
+     "median_time": 0.1512
+    },
+    "tabu_sameCPU": {
+     "mean": 3.0337,
+     "mean_gap": 0.0,
+     "hits": 10,
+     "median_time": 14.9935
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     4,
+     0,
+     6
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     5,
+     0,
+     5
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     4,
+     0,
+     6
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     9,
+     0,
+     1
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     2,
+     8
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     1,
+     0,
+     9
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     9,
+     0,
+     1
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     6,
+     0,
+     4
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     9,
+     0,
+     1
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     7,
+     0,
+     3
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     8,
+     2,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     3,
+     0,
+     7
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     1,
+     9
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     1,
+     9
+    ]
+   }
+  },
+  "n=48,wifi": {
+   "instances": 10,
+   "methods": {
+    "DSatur+descent": {
+     "mean": 13.934,
+     "mean_gap": 3.6993,
+     "hits": 0,
+     "median_time": 0.0008
+    },
+    "DSatur_greedy": {
+     "mean": 15.1243,
+     "mean_gap": 4.8896,
+     "hits": 0,
+     "median_time": 0.0008
+    },
+    "LCCS_best_response": {
+     "mean": 14.0855,
+     "mean_gap": 3.8508,
+     "hits": 0,
+     "median_time": 0.0005
+    },
+    "QAOA1_expected": {
+     "mean": 91.9464,
+     "mean_gap": 81.7118,
+     "hits": 0,
+     "median_time": 1.5
+    },
+    "RQAOA1": {
+     "mean": 35.9192,
+     "mean_gap": 25.6845,
+     "hits": 0,
+     "median_time": 37.2737
+    },
+    "RQAOA1+descent": {
+     "mean": 12.8755,
+     "mean_gap": 2.6408,
+     "hits": 0,
+     "median_time": 37.2737
+    },
+    "SDP_FJ+descent_best100": {
+     "mean": 10.395,
+     "mean_gap": 0.1603,
+     "hits": 0,
+     "median_time": 4.7799
+    },
+    "SDP_FJ_best100": {
+     "mean": 17.3017,
+     "mean_gap": 7.067,
+     "hits": 0,
+     "median_time": 4.726
+    },
+    "SDP_FJ_mean": {
+     "mean": 77.8065,
+     "mean_gap": 67.5718,
+     "hits": 0,
+     "median_time": 4.726
+    },
+    "SDP_lowerbound": {
+     "mean": 8.7721,
+     "mean_gap": -1.4626,
+     "hits": 0,
+     "median_time": 4.726
+    },
+    "best_known": {
+     "mean": 10.2347,
+     "mean_gap": 0.0,
+     "hits": 10,
+     "median_time": 20.0
+    },
+    "multistart_descent_sameCPU": {
+     "mean": 10.2605,
+     "mean_gap": 0.0258,
+     "hits": 0,
+     "median_time": 37.2737
+    },
+    "tabu_1pctCPU": {
+     "mean": 10.7368,
+     "mean_gap": 0.5022,
+     "hits": 0,
+     "median_time": 0.3734
+    },
+    "tabu_sameCPU": {
+     "mean": 10.2806,
+     "mean_gap": 0.0459,
+     "hits": 0,
+     "median_time": 37.2743
+    }
+   },
+   "win_tie_loss": {
+    "RQAOA1 vs DSatur+descent": [
+     1,
+     0,
+     9
+    ],
+    "RQAOA1 vs DSatur_greedy": [
+     3,
+     0,
+     7
+    ],
+    "RQAOA1 vs LCCS_best_response": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1 vs QAOA1_expected": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1 vs RQAOA1+descent": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1 vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1 vs SDP_FJ_best100": [
+     3,
+     0,
+     7
+    ],
+    "RQAOA1 vs SDP_FJ_mean": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1 vs multistart_descent_sameCPU": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1 vs tabu_1pctCPU": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1 vs tabu_sameCPU": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1+descent vs DSatur+descent": [
+     8,
+     0,
+     2
+    ],
+    "RQAOA1+descent vs DSatur_greedy": [
+     8,
+     0,
+     2
+    ],
+    "RQAOA1+descent vs LCCS_best_response": [
+     7,
+     0,
+     3
+    ],
+    "RQAOA1+descent vs QAOA1_expected": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs RQAOA1": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ+descent_best100": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1+descent vs SDP_FJ_best100": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs SDP_FJ_mean": [
+     10,
+     0,
+     0
+    ],
+    "RQAOA1+descent vs multistart_descent_sameCPU": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1+descent vs tabu_1pctCPU": [
+     0,
+     0,
+     10
+    ],
+    "RQAOA1+descent vs tabu_sameCPU": [
+     0,
+     0,
+     10
+    ]
+   }
+  }
+ }
+}

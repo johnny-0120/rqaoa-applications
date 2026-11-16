@@ -1,0 +1,70 @@
+{
+  "reason": "New 40-instance challenge after fast RQAOA transfer showed signal in first confirmation; no refitting",
+  "family": "paintshop",
+  "sizes_and_seeds": {
+    "32": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "64": [
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219
+    ]
+  },
+  "transfer": {
+    "alpha": 1.0224714918295879,
+    "beta": 0.3789426394678974,
+    "training_residuals": 112
+  },
+  "quantum_evolution_depth": 1,
+  "correlations": "exact CPU",
+  "repetitions": "transfer median of3 times; local/tabu each3 seeds at same per-case median CPU budget",
+  "classical": [
+    "RSG author code",
+    "canonical RG",
+    "edge contraction",
+    "local32",
+    "SDP1024 plus local polish",
+    "CPU-matched local",
+    "CPU-matched tabu"
+  ],
+  "tabu": "tenure5..9; aspiration; restart after10*n nonimproving moves; no target-instance tuning",
+  "optimality": "No exact certificate for n32/64; report swaps directly",
+  "tabu_delta_validation": 1.7763568394002505e-15
+}

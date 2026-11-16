@@ -1,0 +1,8 @@
+{
+  "correlation_cases": 16,
+  "max_correlation_error": 1.6653345369377348e-15,
+  "max_substitution_error": 0.0,
+  "aer_cycle6_expected": 4.5,
+  "aer_cycle6_shots": 4096,
+  "aer_cycle6_empirical_cut": 4.5068359375
+}

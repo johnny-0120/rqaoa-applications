@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-07",
+  "scope": "Question9 graph structure / RQAOA",
+  "pdf_pages": 10,
+  "pdf_links": 6,
+  "page_bounds_check": "passed",
+  "visual_check": "All 10 pages inspected; changed pages 1 and 10 re-rendered for final review.",
+  "sha256": {
+    "research/q9_study.py": "13e68c6b412ea10711e907e9a8494b1c64b23216c1a51d2e2e188e56e7787f65",
+    "research/q9_depth_noise.py": "ac934d72bfe48da6730386a8fd10c5a4a49e27a4740e37d646db5f736e145ffd",
+    "research/q9_analyze.py": "a939660b772fe0958367c5fa0129dfe0e346182e56d86e30e3df4ddb66036acf",
+    "research/q9_report.py": "0259cc4b04204629fd166968aeabebbd760db4035523e646517ad447d0a8ed7d",
+    "research/q9_protocol.json": "452a23ceec77cd2f4f7b24daf340527fb9fa7b9d084f2d9cf1d91144d5d1b470",
+    "research/q9_results/main.csv": "611ddf517ea52b386c3e45936b5504078c50aab93aab81f7d82fa1bedd728921",
+    "research/q9_results/depth.csv": "5d4b71adc91ff8219ea4ef451237fedeab6bf4dff086f58b398c2929504bc1b2",
+    "research/q9_results/noise.csv": "8ef066b4262269291c53fc8640f9a21cfffb9d90c0fe55b431a643738dafb53c",
+    "requirements-lock.txt": "2cede2982b5779aa1b26881ecd0ddf25773e235c50132ed17b7436f98f4e9796",
+    "output\\pdf\\第9題研究報告_圖結構與Recursive_QAOA.pdf": "96c5ba3a08c196586f4944335cf8bc0a37904b796453d0de082e85e20218d45c"
+  }
+}
