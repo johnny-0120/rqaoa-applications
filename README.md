@@ -8,6 +8,7 @@
 
 - `research/rqaoa_opportunity/`：噴漆換色（Binary Paint Shop）RQAOA、參數轉移、RSG 等古典基準。
 - `research/rqaoa_opportunity/fixes.py`、`adaptive.py`：RQAOA 輸給禁忌搜尋的原因診斷，以及多路徑、QRR、回溯、半路交棒等補救實測（結果在 `results/fixes.csv`、`results/adaptive.csv`）。
+- `research/rqaoa_opportunity/depth.py`：p=1、2、3 完整量子態模擬的 RQAOA，比較加深線路對綁錯的影響（`results/depth.csv`）。
 - `research/rqaoa_maxkcut/`：三色 RQAOA 與 Wi-Fi 頻道規劃實測。
 - `research/rqaoa_opportunity/sources/`：引用 V. Vijendran 的 MIT 授權程式（XQAOA-BPSP），保留原作者授權標頭。
 

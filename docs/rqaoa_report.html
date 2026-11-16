@@ -111,7 +111,7 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
   <h1>RQAOA 可以用在哪裡？</h1>
   <p class="meta">報告人：Johnny（RQAOA 線）· 2026-11-14 · 五輪本機實測與文獻查核 · 全部是電腦模擬，未上量子真機</p>
   <nav class="toc" aria-label="目錄">
-    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
+    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#depth">加深線路</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
   </nav>
 </header>
 
@@ -371,6 +371,41 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
   <div class="callout"><b>老實說：</b>這兩輪實測證實了一件事——在 p=1、電腦模擬、噴漆這類小而稀疏的題目上，RQAOA 怎麼改都只能「越來越接近」禁忌搜尋，沒有贏。它能穩定贏的只有 RSG 這類只看鄰居的貪婪法。這不是調參數能解決的，是 p=1 只看得到鄰居這個根本限制。報告應該把這件事當成發現誠實寫出來，而不是包裝成優勢。</div>
 </section>
 
+<section id="depth">
+  <h2>如果不是 p=1 呢？（11/17 實測＋文獻）</h2>
+  <p class="lead">p 是量子線路的層數。p=1 時每個變數只看得到隔壁一圈，p=2 看到兩圈，p 越大看得越遠。理論上這正好對症「只看得到鄰居」的問題。</p>
+
+  <h3>實測：小型噴漆案例，p=1、2、3 完整模擬</h3>
+  <p>50 個全新案例（12 款車 30 例、16 款車 20 例），用完整量子態模擬，每一步重新最佳化參數，並逐步檢查「綁完這一步，最佳答案還在不在」。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>層數</th><th class="r">QAOA 本身的得分比</th><th class="r">第一步的把握（關聯強度）</th><th class="r">綁錯次數（12 款／16 款）</th><th class="r">16 款車每例時間</th></tr></thead>
+    <tbody>
+      <tr><td>p=1</td><td class="r">0.76</td><td class="r">0.58</td><td class="r">2／0</td><td class="r">1.3 秒</td></tr>
+      <tr><td>p=2</td><td class="r">0.84</td><td class="r">0.76</td><td class="r">0／1</td><td class="r">10 秒</td></tr>
+      <tr class="hl"><td>p=3</td><td class="r">0.89</td><td class="r">0.85</td><td class="r">0／0</td><td class="r">42 秒</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><b>層數越深，越有把握</b>：第一步的關聯強度從 0.58 升到 0.85，QAOA 自己的答案品質也從 0.76 升到 0.89。這直接證明「看得更遠」確實讓判斷更準。</li>
+    <li><b>但這批案例太簡單，分不出最後答案的差別</b>：p=1 只有 50 例中 2 例綁錯，p=3 是 0 例。要看出差別必須用更大的案例（之前 p=1 在 256 台車時每例平均多 5 次換色），可是完整模擬做不到那麼大。</li>
+    <li><b>模擬成本爆炸</b>：每加一層，時間大約乘 4 到 8 倍。256 台車在 p=2、p=3 時，普通電腦已經很難精確模擬。<b>這正好是量子硬體可能派上用場的地方</b>，也是我們無法在本機驗證的地方。</li>
+  </ul>
+  <p class="note">程式：<code>research/rqaoa_opportunity/depth.py</code>；資料：<code>results/depth.csv</code>。</p>
+
+  <h3>文獻：要多深才可能贏古典？</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>研究</th><th>發現</th></tr></thead>
+    <tbody>
+      <tr><td>Marwaha 2021；Barak 等</td><td>p=1、p=2 的 QAOA 在高圍長正則圖上，會被簡單的古典局部演算法打敗。</td></tr>
+      <tr><td>Basso, Farhi 等 2022</td><td>在大度數隨機正則圖的 MAX-CUT 上，<b>p=11</b> 的 QAOA 才勝過他們所知、不依賴未證明猜想的所有古典演算法（理論極限下的結果）。</td></tr>
+      <tr><td>Goh 等 2026（噴漆問題）</td><td>QAOA 要到 p=17 才明顯贏 RSG（0.334 對 0.361），外插到更深約 0.295；但古典的 MF-AOA 已經做到 0.280，仍然更好。</td></tr>
+      <tr><td>真機實驗（IBM 等，2022–2026）</td><td>雜訊會限制可用深度；有研究發現從 p=2 加到 p=5，真機上的品質沒有穩定變好。目前最大的實驗約 144–156 個 qubit、深度約 10 層，沒有確認的量子優勢。</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout"><b>結論：</b>加深線路確實能修好 RQAOA「只看鄰居」的根本限制，我們的實測也看到把握度明顯上升。但要真的贏古典，文獻指出大約需要 10 層以上，而且要在雜訊夠低的量子硬體上跑；在噴漆問題上，即使 17 層也還沒贏最好的古典方法。所以這是一條<b>方向正確、但目前沒人走到終點</b>的路。報告可以把它寫成「我們找到了瓶頸，也驗證了加深能改善瓶頸，下一步需要真機」。</div>
+</section>
+
 <section id="story">
   <h2>給評審的故事稿</h2>
   <p class="note">以下人物與工廠是<b>情境示意</b>（虛構）；成果數字來自我們的實測，產業與文獻說法都附在下方「來源查核」。</p>
@@ -515,6 +550,8 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
     <li>Goh 等. Beyond Quantum Advantage: Improved Classical Algorithms for the Binary Paint Shop Problem (2026). <a href="https://arxiv.org/abs/2604.00607">arXiv:2604.00607</a></li>
     <li>Hančl 等. Improved Bounds for the Binary Paint Shop Problem. COCOON 2023（RSG 出處）</li>
     <li>Finžgar 等. Quantum-Informed Recursive Optimization Algorithms. PRX Quantum 5, 020327 (2024)（QIRO 與回溯）</li>
+    <li>Basso, Farhi, Marwaha, Villalonga, Zhou. The Quantum Approximate Optimization Algorithm at High Depth for MaxCut on Large-Girth Regular Graphs. TQC 2022. <a href="https://arxiv.org/abs/2110.14206">arXiv:2110.14206</a></li>
+    <li>Marwaha. Local Classical MAX-CUT Algorithm Outperforms p=2 QAOA on High-Girth Regular Graphs. Quantum (2021). <a href="https://arxiv.org/abs/2101.05513">arXiv:2101.05513</a></li>
     <li>Patel 等. Reinforcement Learning Assisted Recursive QAOA (2022). <a href="https://arxiv.org/abs/2207.06294">arXiv:2207.06294</a></li>
     <li>Dupont, Sundar. Extending Relax-and-Round Combinatorial Optimization Solvers with Quantum Correlations. Phys. Rev. A 109, 012429 (2024). <a href="https://arxiv.org/abs/2307.05821">arXiv:2307.05821</a></li>
     <li>產業資料：<a href="https://www.pcimag.com/articles/95005-a-closed-loop-recycling-program-for-purge-solvents">PCI：沖洗溶劑回收案例</a>；<a href="https://www.automotivemanufacturingsolutions.com/voice/automotive-paintshop-colour-changes-reducing-waste-and-cost/41864.article">Automotive Manufacturing Solutions：噴漆換色的浪費與成本</a>；<a href="https://wiki.bambulab.com/en/software/bambu-studio/reduce-wasting-during-filament-change">Bambu Lab Wiki：減少換料浪費</a></li>
