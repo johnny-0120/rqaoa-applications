@@ -111,7 +111,7 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
   <h1>RQAOA 可以用在哪裡？</h1>
   <p class="meta">報告人：Johnny（RQAOA 線）· 2026-11-14 · 五輪本機實測與文獻查核 · 全部是電腦模擬，未上量子真機</p>
   <nav class="toc" aria-label="目錄">
-    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#depth">加深線路</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
+    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#auto">自動交棒</a><a href="#depth">加深線路</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
   </nav>
 </header>
 
@@ -369,6 +369,35 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
     <li>128 台車時結論相同：回溯 0 勝 8 平 2 負、交棒 0 勝 6–7 平 3–4 負。程式：<code>research/rqaoa_opportunity/adaptive.py</code>，資料：<code>results/adaptive.csv</code>。</li>
   </ul>
   <div class="callout"><b>老實說：</b>這兩輪實測證實了一件事——在 p=1、電腦模擬、噴漆這類小而稀疏的題目上，RQAOA 怎麼改都只能「越來越接近」禁忌搜尋，沒有贏。它能穩定贏的只有 RSG 這類只看鄰居的貪婪法。這不是調參數能解決的，是 p=1 只看得到鄰居這個根本限制。報告應該把這件事當成發現誠實寫出來，而不是包裝成優勢。</div>
+</section>
+
+<section id="auto">
+  <h2>第三輪：讓 RQAOA 自己決定何時交棒（11/17 實測）</h2>
+  <p class="lead">半路交棒原本固定在 25%。這輪改成看「把握度」自動決定：當這一步最強的關聯，掉到前 5 步平均的 c 倍以下，就把剩下的問題交給禁忌搜尋（最晚 50% 一定交）。</p>
+  <p>c 先在<b>另外 16 個訓練案例</b>上從 0.95、0.9、0.85、0.8 四個值中挑選，挑完凍結，再拿到同一批 16 個測試案例上比較，避免「看答案調參數」。</p>
+
+  <h3>訓練時就看到的規律</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>c（越大越早交棒）</th><th class="r">0.95</th><th class="r">0.9</th><th class="r">0.85</th><th class="r">0.8</th></tr></thead>
+    <tbody><tr><td>訓練案例：比最佳多幾次</td><td class="r">0.06</td><td class="r">0.29</td><td class="r">0.42</td><td class="r">0.42</td></tr></tbody>
+  </table></div>
+  <p>越早交棒越好，所以選了最早交棒的 0.95。</p>
+
+  <h3>測試結果</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>做法</th><th class="r">量子做了幾成步驟</th><th class="r">256 台車：比最佳多幾次</th><th class="r">時間</th><th>對同時間禁忌搜尋</th></tr></thead>
+    <tbody>
+      <tr><td>固定 25% 交棒</td><td class="r">25%</td><td class="r">0.67</td><td class="r">1.4 秒</td><td>0 勝 4 平 2 負</td></tr>
+      <tr class="hl"><td>自動交棒（c=0.95）</td><td class="r">4%</td><td class="r">0.17</td><td class="r">0.65 秒</td><td>1 勝 4 平 1 負（打平）</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">128 台車：自動交棒量子只做 8% 步驟，比最佳多 0.07 次，對禁忌搜尋 0 勝 9 平 1 負；對固定 25% 是 3 勝 6 平 1 負。程式：<code>research/rqaoa_opportunity/autohandoff.py</code>；資料：<code>results/autohandoff.csv</code>。</p>
+
+  <div class="callout"><b>老實說，這個結果的意思是：</b>自動交棒確實比固定 25% 好，也第一次在 256 台車上和禁忌搜尋打平。但它變好的原因，是<b>量子做得越少越好</b>——最佳做法只讓量子綁掉約 4–8% 的變數，其餘全靠禁忌搜尋。換句話說，在這個題目上，RQAOA 的貢獻接近零；它最多能「幾乎不扣分地」先縮小一點點問題。這不是量子優勢，而是再次證實 p=1 RQAOA 的判斷在噴漆問題上不如古典搜尋可靠。</div>
+  <ul>
+    <li><b>還是有一點用處</b>：前幾步幾乎不會出錯，所以量子硬體很少時，可以只用它做「最有把握的前幾步」縮小問題，再交給古典。這讓量子時間用在最安全的地方。</li>
+    <li><b>這也是一條規則，可以放進檢測網站</b>：如果一份資料的最佳交棒點趨近 0%，就代表「這份資料不需要 RQAOA」，直接給紅燈。</li>
+  </ul>
 </section>
 
 <section id="depth">
