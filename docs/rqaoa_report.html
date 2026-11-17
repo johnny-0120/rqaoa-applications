@@ -111,7 +111,7 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
   <h1>RQAOA 可以用在哪裡？</h1>
   <p class="meta">報告人：Johnny（RQAOA 線）· 2026-11-14 · 五輪本機實測與文獻查核 · 全部是電腦模擬，未上量子真機</p>
   <nav class="toc" aria-label="目錄">
-    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#auto">自動交棒</a><a href="#depth">加深線路</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
+    <a href="#tldr">結論</a><a href="#what">RQAOA 是什麼</a><a href="#app1">應用一 噴漆換色</a><a href="#result1">實驗結果</a><a href="#where">還能用在哪</a><a href="#print3d">3D 列印</a><a href="#app2">應用二 檢測網站</a><a href="#fixes">為什麼會輸、怎麼補</a><a href="#auto">自動交棒</a><a href="#depth">加深線路</a><a href="#next">下一步研究計畫</a><a href="#story">評審故事稿</a><a href="#sources">來源查核</a><a href="#limits">限制</a><a href="#refs">參考文獻</a>
   </nav>
 </header>
 
@@ -435,6 +435,52 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
   <div class="callout"><b>結論：</b>加深線路確實能修好 RQAOA「只看鄰居」的根本限制，我們的實測也看到把握度明顯上升。但要真的贏古典，文獻指出大約需要 10 層以上，而且要在雜訊夠低的量子硬體上跑；在噴漆問題上，即使 17 層也還沒贏最好的古典方法。所以這是一條<b>方向正確、但目前沒人走到終點</b>的路。報告可以把它寫成「我們找到了瓶頸，也驗證了加深能改善瓶頸，下一步需要真機」。</div>
 </section>
 
+<section id="next">
+  <h2>下一步研究計畫：量子訊號是否綁錯得更少？</h2>
+  <p class="lead">不再問「能不能贏古典」，改問：<b>在同一套 RQAOA 流程裡，用量子相關性決定「綁哪一對」，是否比用古典訊號綁錯得更少？這個差距會不會隨層數 p 擴大？</b></p>
+
+  <h3>1. 骨架固定，只換訊號</h3>
+  <p>同一套消去流程（每步綁一對、縮小、最後窮舉），只換「用什麼決定綁哪一對」。訊號分兩組比，才公平：</p>
+  <div class="tbl"><table>
+    <thead><tr><th>組別</th><th>訊號</th><th>看多遠</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2"><b>同半徑的局部訊號</b>（主比較）</td><td>QAOA p=1、2、3 的相關性</td><td>半徑 p</td></tr>
+      <tr><td>BP（信念傳播）跑 p 輪</td><td>半徑 p</td></tr>
+      <tr><td rowspan="2"><b>全局訊號</b>（參考上限）</td><td>GW／SDP 向量內積</td><td>整張圖</td></tr>
+      <tr><td>調過溫度的 Monte Carlo 相關性</td><td>整張圖</td></tr>
+      <tr><td>基準線</td><td>隨機選一條邊</td><td>不看</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">修正一：原建議說「同樣的觀察半徑」，但 SDP 與 Monte Carlo 看的是整張圖，不能和半徑 p 的 QAOA 直接比。主結論只比同半徑的 QAOA 與 BP；全局訊號當參考。</p>
+
+  <h3>2. 換成會出錯的圖</h3>
+  <ul>
+    <li>噴漆的圖太簡單：50 個小案例裡 p=1 只綁錯 2 次，分不出差別（見「加深線路」）。</li>
+    <li>改用<b>二維方格與三角格子上的 ±J 自旋玻璃</b>：每條邊隨機 +1 或 −1，短迴圈互相矛盾（挫折），RQAOA 容易綁錯。</li>
+    <li>p=2 時每個判斷的光錐約二十幾個點、內含迴圈，用光錐精確模擬或張量網路（quimb）仍算得動，變數可做到上百個。</li>
+  </ul>
+
+  <h3>3. 最佳解用精確算法，不用估計</h3>
+  <p class="note">修正二：原建議用長時間 parallel tempering 當最佳解參考。但方格與三角格子都是<b>平面圖</b>，沒有外加磁場時，±J 自旋玻璃的最佳解可用最小權完美匹配在多項式時間內<b>精確</b>求出（Barahona 1982）。所以每一步「最佳解還在不在」可以精確檢查。</p>
+  <p class="note">修正三：只有每次都綁<b>有邊相連的兩點</b>（邊收縮），圖才會一直保持平面；綁不相連的兩點可能破壞平面性，精確檢查就失效。因此規則限制為只綁相鄰兩點，這也和 Bravyi 等原論文的做法一致。</p>
+
+  <h3>4. 指標</h3>
+  <ul>
+    <li><b>綁錯率</b>：每綁一步，檢查最佳解是否仍可達（<code>depth.py</code> 已有此檢查，改用平面精確解法即可放大規模）。</li>
+    <li><b>第一次綁錯的位置</b>：錯在前段還是後段。</li>
+    <li><b>古典計算成本曲線</b>：算出每種訊號的時間隨 p 的變化（QAOA 的光錐模擬成本預期指數上升）。</li>
+  </ul>
+
+  <h3>5. 可能的結論</h3>
+  <div class="two">
+    <div><h3>如果量子訊號較好</h3><p>綁錯率隨 p 下降、低於同半徑的 BP，且古典模擬成本隨 p 指數上升：這是有數據、有外推依據的「量子可能開始有用的位置」。</p></div>
+    <div><h3>如果沒有較好</h3><p>這是乾淨的負結果，而且是在比噴漆更難、更有意義的圖上得到的，同樣可以發表與報告。</p></div>
+  </div>
+
+  <h3>6. 時程</h3>
+  <p>11/18 的報告先把這份寫成「下一步研究計畫」。實作需要光錐／張量網路模擬、BP、SDP、Monte Carlo 四種訊號與平面精確解法，預估需數天，報告後再進行。建議先做最小版本：4×4 到 6×6 方格、QAOA p=1 對 BP 與隨機，確認流程後再擴大。</p>
+</section>
+
 <section id="story">
   <h2>給評審的故事稿</h2>
   <p class="note">以下人物與工廠是<b>情境示意</b>（虛構）；成果數字來自我們的實測，產業與文獻說法都附在下方「來源查核」。</p>
@@ -581,6 +627,7 @@ code{font-family:var(--f-mono);font-size:.88em;background:var(--accent-soft);pad
     <li>Finžgar 等. Quantum-Informed Recursive Optimization Algorithms. PRX Quantum 5, 020327 (2024)（QIRO 與回溯）</li>
     <li>Basso, Farhi, Marwaha, Villalonga, Zhou. The Quantum Approximate Optimization Algorithm at High Depth for MaxCut on Large-Girth Regular Graphs. TQC 2022. <a href="https://arxiv.org/abs/2110.14206">arXiv:2110.14206</a></li>
     <li>Marwaha. Local Classical MAX-CUT Algorithm Outperforms p=2 QAOA on High-Girth Regular Graphs. Quantum (2021). <a href="https://arxiv.org/abs/2101.05513">arXiv:2101.05513</a></li>
+    <li>Barahona. On the Computational Complexity of Ising Spin Glass Models. J. Phys. A 15, 3241 (1982)（平面圖自旋玻璃可多項式時間精確求解）</li>
     <li>Patel 等. Reinforcement Learning Assisted Recursive QAOA (2022). <a href="https://arxiv.org/abs/2207.06294">arXiv:2207.06294</a></li>
     <li>Dupont, Sundar. Extending Relax-and-Round Combinatorial Optimization Solvers with Quantum Correlations. Phys. Rev. A 109, 012429 (2024). <a href="https://arxiv.org/abs/2307.05821">arXiv:2307.05821</a></li>
     <li>產業資料：<a href="https://www.pcimag.com/articles/95005-a-closed-loop-recycling-program-for-purge-solvents">PCI：沖洗溶劑回收案例</a>；<a href="https://www.automotivemanufacturingsolutions.com/voice/automotive-paintshop-colour-changes-reducing-waste-and-cost/41864.article">Automotive Manufacturing Solutions：噴漆換色的浪費與成本</a>；<a href="https://wiki.bambulab.com/en/software/bambu-studio/reduce-wasting-during-filament-change">Bambu Lab Wiki：減少換料浪費</a></li>

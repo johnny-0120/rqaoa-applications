@@ -13,7 +13,9 @@
 - `research/rqaoa_maxkcut/`：三色 RQAOA 與 Wi-Fi 頻道規劃實測。
 - `research/rqaoa_opportunity/sources/`：引用 V. Vijendran 的 MIT 授權程式（XQAOA-BPSP），保留原作者授權標頭。
 
-全部是 p=1 的 CPU 精確模擬，沒有上量子真機。
+- `output/下一步研究計畫_量子相關性訊號比較.md`：下一步研究計畫（量子 vs 古典訊號的綁錯率，±J 平面自旋玻璃），尚未實作。
+
+全部是 CPU 精確模擬，沒有上量子真機。
 
 ---
 
